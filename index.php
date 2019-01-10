@@ -1,39 +1,16 @@
 <!DOCTYPE html>
 <html>
-
+<?php session_start(); ?>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
   <link rel="stylesheet" href="theme.css" type="text/css">
+
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-md bg-light navbar-light">
-    <div class="container"> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar12">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbar12"> <a class="navbar-brand d-none d-md-block" href="#">
-      <i class="fa d-inline fa-lg fa-circle"></i>
-      <b>Home</b>
-    </a>
-    <ul class="navbar-nav mx-auto">
-      <li class="nav-item"> <a class="nav-link" href="index.html">บทเรียน</a> </li>
-      <li class="nav-item"> <a class="nav-link" href="editprofile.html">ข้อมูลผู้ใช้</a> </li>
-    </ul>
-    <ul class="navbar-nav">
-      <li class="nav-item"> <a class="nav-link" href="#">ชื่อผู้ใช้</a> </li>
-      <li class="nav-item">  <?php
-     
-       echo "<a class='nav-link' href='index.php' data-toggle='modal' data-target='#exampleModal'>เข้าสู่ระบบ</a>";
-    
-     ?>     
-   </li>
-   <?php include 'login.php'; ?>
- </ul>
-</div>
-</div>
-</nav>
+ <?php include 'navbar.php'; ?>
 <div class="py-2" style="">
   <div class="container">
     <div class="row">
@@ -75,7 +52,7 @@
       <div class="col-md-12">
         <h1 class="mb-3 text-center">สื่อการเรียนรู้</h1>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"><i class="fa text-primary mr-2 fa-arrow-right"></i><a href="">การดูแลผู้สูงอายุ</a> </li>
+          <li class="list-group-item"><i class="fa text-primary mr-2 fa-arrow-right"></i><a href="watch.php">การดูแลผู้สูงอายุ</a> </li>
           <li class="list-group-item"><i class="fa text-primary mr-2 fa-arrow-right"></i>Cras justo odio</li>
           <li class="list-group-item"><i class="fa text-primary mr-2 fa-arrow-right"></i> Dapibus ac facilisis in</li>
           <li class="list-group-item"><i class="fa text-primary mr-2 fa-arrow-right"></i> Morbi leo risus</li>

@@ -9,25 +9,7 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-md navbar-light bg-light">
-    <div class="container"> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar12">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbar12"> <a class="navbar-brand d-none d-md-block" href="#">
-          <i class="fa d-inline fa-lg fa-circle"></i>
-          <b> Home</b>
-        </a>
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item"> <a class="nav-link" href="index.html">บทเรียน</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="editprofile.html">ข้อมูลผู้ใช้</a> </li>
-        </ul>
-        <ul class="navbar-nav">
-          <li class="nav-item"> <a class="nav-link" href="#">ชื่อผู้ใช้</a> </li>
-          <li class="nav-item"> <a class="nav-link text-primary" href="#">ออกจากระบบ</a> </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+ <?php include 'navbar.php'; ?>
   <div class="py-2">
     <div class="container">
       <div class="row">
