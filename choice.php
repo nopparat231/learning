@@ -8,99 +8,98 @@
   <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.1.3.css">
 </head>
 
+<?php include 'conn.php'; ?>
+<?php 
+$choice_id = $_GET['choice_id'];
+$user_id = $_GET['user_id'];
+
+$sql="SELECT * From testing where choice_id = $choice_id order by rand() limit 21";
+$db_query=mysqli_query($con,$sql) or die(mysqli_error());
+$result=mysqli_fetch_array($db_query)
+?>
+
 <body>
   <?php include 'navbar.php'; ?>
-  <?php include 'banner.php'; ?>
-  <div class="py-2">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h1 class="text-center"><b>Heading 1</b></h1>
+  <?php //include 'banner.php'; ?>
+  <div class="container">
+
+    <div class="py-2">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1 class="text-center"><b>Heading 1</b></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+<form name="form1" method="post" action="choice_check.php">
+    <div class="py-3" style="">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2">
+          </div>
+          <div class="col-md-10">
+
+           <?php
+
+           $i=0;
+           while($result=mysqli_fetch_array($db_query))
+           {
+            $i++;
+
+            ?>
+            <?php echo $result["id"];?>
+            <?php echo $i;?>
+            <input name="id[<?php echo $i;?>]" type="hidden" value="<?php echo $result["id"];?>">
+            <?php echo $i." ).   ".$result["question"];?>
+
+            
+            <ol>
+              <input name="c<?php echo $i;?>" type="radio" value="1" checked>
+              <?php echo $result["c1"];?><br>
+              <input type="radio" name="c<?php echo $i;?>" value="2">
+              <?php echo $result["c2"];?><br>
+              <input type="radio" name="c<?php echo $i;?>" value="3">
+              <?php echo $result["c3"];?><br>
+              <input type="radio" name="c<?php echo $i;?>" value="4">
+              <?php echo $result["c4"];?><br>
+
+              <input name="answer[<?php echo $i;?>]" type="hidden" value="<?php echo $result["answer"];?>">
+            </ol>
+
+
+            <hr>
+
+          <?php } ?>
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <a class="btn btn-secondary" type="submit" href="choice_check.php">ส่งคำตอบ</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <p class="mb-0">© 2014-2018 Pingendo. All rights reserved</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="py-3" style="">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h2 class="">Heading 2 <small class="text-muted">subtitle</small></h2>
-          <ol class="">
-            <li>One</li>
-            <li>Two</li>
-            <li>Three</li>
-          </ol>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="py-3" style="">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h2 class="">Heading 2 <small class="text-muted">subtitle</small></h2>
-          <ol class="">
-            <li>One</li>
-            <li>Two</li>
-            <li>Three</li>
-          </ol>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="py-3" style="">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <h2 class="">Heading 2 <small class="text-muted">subtitle</small></h2>
-          <ol class="">
-            <li>One</li>
-            <li>Two</li>
-            <li>Three</li>
-          </ol>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 text-center"><a class="btn btn-secondary" href="score.php">ส่งคำตอบ</a></div>
-      </div>
-    </div>
-  </div>
-  <div class="py-3">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 text-center">
-          <p class="mb-0">© 2014-2018 Pingendo. All rights reserved</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <nav class="navbar navbar-expand-md navbar-light bg-light">
-    <div class="container"> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar12">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbar12"> <a class="navbar-brand d-none d-md-block" href="index.php">
-      <i class="fa d-inline fa-lg fa-circle"></i>
-      <b> Home</b>
-    </a>
-    <ul class="navbar-nav mx-auto">
-      <li class="nav-item"> <a class="nav-link" href="#">บทเรียน</a> </li>
-      <li class="nav-item"> <a class="nav-link" href="#">บัญชีผู้ใช้</a> </li>
-      <li class="nav-item"> <a class="nav-link" href="#">ข้อมูลผู้ใช้</a> </li>
-    </ul>
-    <ul class="navbar-nav">
-      <li class="nav-item"> <a class="nav-link" href="#">ชื่อผู้ใช้</a> </li>
-      <li class="nav-item"> <a class="nav-link text-primary" href="#">ออกจากระบบ</a> </li>
-    </ul>
-  </div>
-</div>
-</nav>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</form>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 </body>
 

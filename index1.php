@@ -22,7 +22,7 @@
   $row_choice = mysqli_fetch_assoc($choice);
   $totalRows_choice = mysqli_num_rows($choice);
   ?>
-  
+
 
   <div class="py-2">
     <div class="container">
@@ -36,7 +36,7 @@
                 <li class="list-group-item">
                   <h3>
                     <i class="fa text-primary mr-2 fa-arrow-right"></i>
-                    <a href="watch.php?choice_id=<?php echo $row_choice['choice_id'];?>&act=choice-detail"><?php echo $row_choice['choice_name']; ?></a> 
+                    <a href="watch.php?choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>"><?php echo $row_choice['choice_name']; ?></a> 
                   </h3>
                 </li>
 

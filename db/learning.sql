@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 11, 2019 at 06:02 AM
+-- Generation Time: Jan 11, 2019 at 11:00 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 5.6.38
 
@@ -40,7 +40,7 @@ CREATE TABLE `choice` (
 
 INSERT INTO `choice` (`choice_id`, `choice_name`, `video`) VALUES
 (1, 'การดูแลผู้สูงอายุ', 'https://www.youtube.com/watch?v=jyRLALwqjX8'),
-(2, 'ทอสอบ', 'https://www.youtube.com/watch?v=32FB-gYr49Y'),
+(2, 'ทดสอบ', 'https://www.youtube.com/watch?v=32FB-gYr49Y'),
 (3, 'ทดสอบ Cat Cat Cat', 'https://www.youtube.com/watch?v=UnD2YY2XHno');
 
 -- --------------------------------------------------------
@@ -154,7 +154,8 @@ CREATE TABLE `user_learning` (
 
 INSERT INTO `user_learning` (`user_learning_id`, `choice_id`, `user_id`, `user_learning_bf`, `user_learning_af`) VALUES
 (1, 1, 2, 15, 20),
-(2, 2, 8, 10, 15);
+(2, 2, 8, 10, 15),
+(3, 3, 2, 15, 20);
 
 --
 -- Indexes for dumped tables
@@ -210,7 +211,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user_learning`
 --
 ALTER TABLE `user_learning`
-  MODIFY `user_learning_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_learning_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
