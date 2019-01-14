@@ -10,12 +10,17 @@
 
 <?php include 'conn.php'; ?>
 <?php 
+
 $choice_id = $_GET['choice_id'];
 $user_id = $_GET['user_id'];
 
-$sql="SELECT * From testing where choice_id = $choice_id order by rand() limit 5";
+$sql="SELECT * From testing WHERE choice_id = $choice_id order by rand() limit 5";
 $db_query=mysqli_query($con,$sql) or die(mysqli_error());
-$result=mysqli_fetch_array($db_query)
+$result=mysqli_fetch_array($db_query);
+
+$sqln="SELECT * From choice WHERE choice_id = $choice_id ";
+$db_queryN=mysqli_query($con,$sqln) or die(mysqli_error());
+$resultN=mysqli_fetch_array($db_queryN);
 ?>
 
 <body>
@@ -27,12 +32,12 @@ $result=mysqli_fetch_array($db_query)
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h1 class="text-center"><b>Heading 1</b></h1>
+            <h1 class="text-center"><b>แบบทดสอบก่อนเรียน <?php echo $resultN['choice_name']; ?></b></h1>
           </div>
         </div>
       </div>
     </div>
-    <form name="form1" method="get" action="choice_check.php">
+    <form name="form1" method="get" action="">
       <div class="py-3" style="">
         <div class="container">
           <div class="row">
@@ -79,17 +84,71 @@ $result=mysqli_fetch_array($db_query)
         </div>
       </div>
 
+      <input type="hidden" name="choice_id" value="<?php echo $choice_id ?>">
+
+      <input type="hidden" name="user_id" value="<?php echo $user_id ?>">
 
       <div class="py-3">
         <div class="container">
           <div class="row">
             <div class="col-md-12 text-center">
-              <button class="btn btn-secondary" type="submit">ส่งคำตอบ</button>
+              <button class="btn btn-secondary" name="cal" type="submit" >ส่งคำตอบ</button>
               
             </div>
           </div>
         </div>
-        
+        <?php if (isset($_GET['cal'])) {
+          cal();
+
+
+
+
+        } ?>
+        <?php
+
+        function cal(){
+
+          $choice_id = $_GET['choice_id'];
+          $user_id = $_GET['user_id'];
+
+          $score =0;
+
+          $line = $_GET['line']+1;
+          for ($i=1; $i < $line; $i++) { 
+
+
+            if($_GET["c$i"] == $_GET["answer$i"])
+            {
+              $score=$score+1;
+            }
+
+          } ?>
+
+          <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
+  
+        <script type="text/javascript">
+
+          var $ws = 'watch.php?choice_id=<?php echo $choice_id ?>&user_id=<?php echo $user_id ?>';
+
+          setTimeout(function () { 
+            swal({
+              title: "คะแนนก่อนเรียน <?php echo $score ?> คะแนน",
+
+              type: "success",
+
+              confirmButtonText: "รับชมสื่อการเรียนรู้"
+            },
+            function(isConfirm){
+              if (isConfirm) {
+                window.location.href = $ws;
+              }
+            }); }, 50);
+
+          </script>
+        <?php } ?>
+
       </div>
       <div class="py-3">
         <div class="container">
