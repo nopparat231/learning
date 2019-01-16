@@ -32,9 +32,11 @@
           <ul class="list-group list-group-flush">
             <?php if ($totalRows_choice > 0) {?>
               <?php do { ?>
+
                 <?php 
+                $c =  $row_choice['choice_id']; 
                 $user_id = $_SESSION['UserID'];
-                $sql3="SELECT * From user_learning WHERE user_id = $user_id AND user_learning_af <> 'NO'";
+                $sql3="SELECT * From user_learning WHERE user_id = $user_id AND choice_id = $c";
                 $db_query3=mysqli_query($con,$sql3) or die(mysqli_error());
                 $result3=mysqli_fetch_array($db_query3);
                 $totalRows_query3 = mysqli_num_rows($db_query3);
@@ -42,19 +44,31 @@
                 ?>
 
                 <?php if ($totalRows_query3 > 0){ ?>
-                  <li class="list-group-item">
-                    <h3>
-                      <i class="fa text-primary mr-2 fa-arrow-right"></i>
-                      <a href="choice.php?choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>"><?php echo $row_choice['choice_name']; ?></a> <b>ทำแบบทดสอบแล้ว</b>
-                    </h3>
-                  </li>
+
+                  <?php if ($result3['user_learning_af'] == 'ยังไม่ทำ'){ ?>
+                     <li class="list-group-item">
+                      <h3>
+                        <i class="fa text-primary mr-2 fa-arrow-right"></i>
+                        <a href="choice.php?choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&aff=aff"><?php echo $row_choice['choice_name']; ?></a> <b>ทำแบบทดสอบก่อนเรียนแล้ว</b>
+                      </h3>
+                    </li>
+                  <?php }else{ ?>
+                    <li class="list-group-item">
+                      <h3>
+                        <i class="fa text-primary mr-2 fa-arrow-right"></i>
+                        <a href="choice.php?choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&aff=aff"><?php echo $row_choice['choice_name']; ?></a> <b>ทำแบบทดสอบแล้ว</b>
+                      </h3>
+                    </li>
+
+                  <?php  } ?>
+                  
 
                 <?php }else{ ?>
 
                  <li class="list-group-item">
                   <h3>
                     <i class="fa text-primary mr-2 fa-arrow-right"></i>
-                    <a href="choice.php?choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>"><?php echo $row_choice['choice_name']; ?></a> <b>ยังไม่ทำแบบทดสอบ</b>
+                    <a href="choice.php?choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&bff=bff"><?php echo $row_choice['choice_name']; ?></a> <b>ยังไม่ทำแบบทดสอบ</b>
                   </h3>
                 </li>
               <?php } ?>

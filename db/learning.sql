@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 15, 2019 at 11:00 AM
+-- Generation Time: Jan 16, 2019 at 11:05 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 5.6.38
 
@@ -40,7 +40,7 @@ CREATE TABLE `choice` (
 
 INSERT INTO `choice` (`choice_id`, `choice_name`, `video`) VALUES
 (1, 'การดูแลผู้สูงอายุ', 'https://www.youtube.com/watch?v=jyRLALwqjX8'),
-(2, 'ทดสอบ', 'https://www.youtube.com/watch?v=32FB-gYr49Y'),
+(2, 'ทดสอบ Hey Hey Hey', 'https://www.youtube.com/watch?v=32FB-gYr49Y'),
 (3, 'ทดสอบ Cat Cat Cat', 'https://www.youtube.com/watch?v=UnD2YY2XHno');
 
 -- --------------------------------------------------------
@@ -94,7 +94,17 @@ INSERT INTO `testing` (`id`, `choice_id`, `question`, `c1`, `c2`, `c3`, `c4`, `a
 (42, 2, 'ข้อที่ 27', 'ตัวเลือกที่ 1', 'ตัวเลือกที่ 2', 'ตัวเลือกที่ 3', 'ตัวเลือกที่ 4', 2),
 (43, 2, 'ข้อที่ 28', 'ตัวเลือกที่ 1', 'ตัวเลือกที่ 2', 'ตัวเลือกที่ 3', 'ตัวเลือกที่ 4', 3),
 (44, 2, 'ข้อที่ 29', 'ตัวเลือกที่ 1', 'ตัวเลือกที่ 2', 'ตัวเลือกที่ 3', 'ตัวเลือกที่ 4', 4),
-(45, 2, 'ข้อที่ 30', 'ตัวเลือกที่ 1', 'ตัวเลือกที่ 2', 'ตัวเลือกที่ 3', 'ตัวเลือกที่ 4', 4);
+(45, 2, 'ข้อที่ 30', 'ตัวเลือกที่ 1', 'ตัวเลือกที่ 2', 'ตัวเลือกที่ 3', 'ตัวเลือกที่ 4', 4),
+(46, 3, 'ข้อที่ 1', 'ตัวเลือกที่ 1', 'ตัวเลือกที่ 2', 'ตัวเลือกที่ 3', 'ตัวเลือกที่ 4', 1),
+(47, 3, 'ข้อที่ 2', 'ตัวเลือกที่ 1', 'ตัวเลือกที่ 2', 'ตัวเลือกที่ 3', 'ตัวเลือกที่ 4', 2),
+(48, 3, 'ข้อที่ 3', 'ตัวเลือกที่ 1', 'ตัวเลือกที่ 2', 'ตัวเลือกที่ 3', 'ตัวเลือกที่ 4', 3),
+(49, 3, 'ข้อที่ 4', 'ตัวเลือกที่ 1', 'ตัวเลือกที่ 2', 'ตัวเลือกที่ 3', 'ตัวเลือกที่ 4', 4),
+(50, 3, 'ข้อที่ 5', 'ตัวเลือกที่ 1', 'ตัวเลือกที่ 2', 'ตัวเลือกที่ 3', 'ตัวเลือกที่ 4', 4),
+(51, 3, 'ข้อที่ 6', 'ตัวเลือกที่ 1', 'ตัวเลือกที่ 2', 'ตัวเลือกที่ 3', 'ตัวเลือกที่ 4', 3),
+(52, 3, 'ข้อที่ 7', 'ตัวเลือกที่ 1', 'ตัวเลือกที่ 2', 'ตัวเลือกที่ 3', 'ตัวเลือกที่ 4', 2),
+(53, 3, 'ข้อที่ 8', 'ตัวเลือกที่ 1', 'ตัวเลือกที่ 2', 'ตัวเลือกที่ 3', 'ตัวเลือกที่ 4', 1),
+(54, 3, 'ข้อที่ 9', 'ตัวเลือกที่ 1', 'ตัวเลือกที่ 2', 'ตัวเลือกที่ 3', 'ตัวเลือกที่ 4', 2),
+(55, 3, 'ข้อที่ 10', 'ตัวเลือกที่ 1', 'ตัวเลือกที่ 2', 'ตัวเลือกที่ 3', 'ตัวเลือกที่ 4', 3);
 
 -- --------------------------------------------------------
 
@@ -121,7 +131,7 @@ INSERT INTO `user` (`ID`, `Username`, `Password`, `Firstname`, `Lastname`, `emai
 (1, 'aaa', 'aaa', 'aaa', 'aaa', 'admin@gmail.com', '0900000000', 'A'),
 (2, 'bbb', 'bbb', 'bbbb', 'bbbb', 'user@gmail.com', '0900000000', 'M'),
 (9, 'หกดหกดหกด', 'หกดหกดหกด', 'หกดหกดหกด', 'หกดหกดหกด', 'dfdf@gg.com', '32', 'M'),
-(8, 'sdfsdfdsf', 'sdfsdfsdf', 'sdfsdfsdfsdf', 'sdfsdfsdfsdf', 'sdfd@hh.dd', '201021212', 'M'),
+(8, 'sfsf', 'sfsf', 'sdfsdfsdfsdf', 'sdfsdfsdfsdf', 'sdfd@hh.dd', '201021212', 'M'),
 (10, 'fff', 'fff', 'fff', 'fff', 'fff@gg.ff', '111111111', 'M');
 
 -- --------------------------------------------------------
@@ -143,8 +153,8 @@ CREATE TABLE `user_learning` (
 --
 
 INSERT INTO `user_learning` (`user_learning_id`, `choice_id`, `user_id`, `user_learning_bf`, `user_learning_af`) VALUES
-(1, 1, 2, 15, 'NO'),
-(2, 2, 8, 10, 'NO');
+(10, 1, 2, 1, '1'),
+(11, 2, 8, 1, '1');
 
 --
 -- Indexes for dumped tables
@@ -188,7 +198,7 @@ ALTER TABLE `choice`
 -- AUTO_INCREMENT for table `testing`
 --
 ALTER TABLE `testing`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `user`
@@ -200,7 +210,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `user_learning`
 --
 ALTER TABLE `user_learning`
-  MODIFY `user_learning_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `user_learning_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

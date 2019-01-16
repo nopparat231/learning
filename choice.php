@@ -21,6 +21,8 @@ $result=mysqli_fetch_array($db_query);
 $sqln="SELECT * From choice WHERE choice_id = $choice_id ";
 $db_queryN=mysqli_query($con,$sqln) or die(mysqli_error());
 $resultN=mysqli_fetch_array($db_queryN);
+
+
 ?>
 
 <body>
@@ -32,7 +34,15 @@ $resultN=mysqli_fetch_array($db_queryN);
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h1 class="text-center"><b>แบบทดสอบก่อนเรียน <?php echo $resultN['choice_name']; ?></b></h1>
+            <h1 class="text-center"><b>
+
+              <?php if (isset($_GET['bff'])){ ?>
+                แบบทดสอบก่อนเรียน <?php echo $resultN['choice_name']; ?>
+              <?php }elseif(isset($_GET['aff'])){ ?>
+                แบบทดสอบหลังเรียน <?php echo $resultN['choice_name']; ?>
+              <?php } ?>
+
+            </b></h1>
           </div>
         </div>
       </div>
@@ -88,18 +98,10 @@ $resultN=mysqli_fetch_array($db_queryN);
 
       <input type="hidden" name="user_id" value="<?php echo $user_id ?>">
 
-      <?php 
-
-      $sql3="SELECT * From user_learning WHERE user_id = $user_id AND user_learning_af <> 'NO'";
-      $db_query3=mysqli_query($con,$sql3) or die(mysqli_error());
-      $result3=mysqli_fetch_array($db_query3);
-      $totalRows_query3 = mysqli_num_rows($db_query3);
-
-      ?>
-
-      <?php if ($totalRows_query3 > 0){ ?>
+      
+      <?php if (isset($_GET['aff'])){ ?>
         <input type="hidden" name="af" value="af" />
-      <?php }else{ ?>
+      <?php }elseif(isset($_GET['bff'])){ ?>
        <input type="hidden" name="bf" value="bf" />
      <?php } ?>
 
@@ -115,7 +117,7 @@ $resultN=mysqli_fetch_array($db_queryN);
       </div>
 
       <?php if (isset($_GET['bf'])) {
-        cal();
+        bf();
       }elseif (isset($_GET['af'])) {
         af();
       } ?>
@@ -123,7 +125,7 @@ $resultN=mysqli_fetch_array($db_queryN);
       <!-- คำนวนคะแนนก่อนเรียน -->
       <?php
 
-      function cal(){
+      function bf(){
 
         $choice_id = $_GET['choice_id'];
         $user_id = $_GET['user_id'];
@@ -142,7 +144,7 @@ $resultN=mysqli_fetch_array($db_queryN);
         }
         include 'conn.php';
 
-        $user_learning_af = 'NO';
+        $user_learning_af = 'ยังไม่ทำ';
         $sql1 = "INSERT INTO user_learning VALUES(null, '$choice_id', '$user_id', '$score','$user_learning_af')";
 
         $result1 = mysqli_query($con, $sql1) or die ("Error in query: $sql1 " . mysqli_error());

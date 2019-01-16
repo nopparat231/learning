@@ -7,14 +7,22 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
   <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.1.3.css">
 </head>
+<?php 
+include('conn.php'); 
+$user_id = $_GET['user_id'];
 
+$check = "SELECT * FROM user WHERE id = $user_id ";
+$result = mysqli_query($con,$check) or die(mysqli_error());
+$num = mysqli_fetch_assoc($result);
+
+ ?>
 <body>
  <?php include 'navbar.php'; ?>
 <div class="py-2">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h1 class="text-center"><b>สมัครสมาชิก</b></h1>
+        <h1 class="text-center"><b>แก้ไขข้อมูล</b></h1>
       </div>
     </div>
   </div>
@@ -24,10 +32,11 @@
     <div class="row">
       <div class="text-right col-md-12" style="">
         <form class="" id="c_form-h" action="register_db.php" method="post" >
-          <div class="form-group row"><label class="col-2">ชื่อผู้ใช้</label>
+          <div class="form-group row">
+            <label class="col-2">ชื่อผู้ใช้</label>
             <div class="col-10">
               <div class="input-group">
-                <input type="text" name="Username" class="form-control" id="inlineFormInputGroup" required="กรุณากรอกชื่อผู้ใช้" placeholder="กรุณากรอกชื่อผู้ใช้"></div>
+                <input type="dissable" name="Username" class="form-control" id="inlineFormInputGroup" required="กรุณากรอกชื่อผู้ใช้" placeholder="กรุณากรอกชื่อผู้ใช้" value="<?php echo($num['Username'])?>" ></div>
               </div>
             </div>
             <div class="form-group row"> <label for="inputpasswordh" class="col-2 col-form-label">รหัสผ่าน<br></label>
