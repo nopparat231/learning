@@ -43,7 +43,7 @@
           <li class="nav-item "> 
             <?php if (isset($_SESSION["Userlevel"]) == "M") { 
 
-              echo "<b class='nav-link' >".$_SESSION["User"]."</b>";
+              echo "<b class='fa text-primary nav-link' >".$_SESSION["User"]."</b>";
             }else{ ?>
 
 
@@ -57,7 +57,7 @@
             <?php
 
             if (isset($_SESSION["Userlevel"]) == "M") {
-              echo "<a class='nav-link' href='logout.php'>ออกจากระบบ</a>";
+              echo "<a class='fa text-danger nav-link' href='logout.php'>ออกจากระบบ</a>";
 
             }else{?>
 

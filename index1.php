@@ -49,14 +49,14 @@
                      <li class="list-group-item">
                       <h3>
                         <i class="fa text-primary mr-2 fa-arrow-right"></i>
-                        <a href="choice.php?choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&aff=aff"><?php echo $row_choice['choice_name']; ?></a> <b>ทำแบบทดสอบก่อนเรียนแล้ว</b>
+                        <a href="choice.php?choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&aff=aff"><?php echo $row_choice['choice_name']; ?></a> <b style="color: #FF5733"> <font size="5"> ทำแบบทดสอบก่อนเรียนแล้ว </font></b>
                       </h3>
                     </li>
                   <?php }else{ ?>
                     <li class="list-group-item">
                       <h3>
                         <i class="fa text-primary mr-2 fa-arrow-right"></i>
-                        <a href="choice.php?choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&aff=aff"><?php echo $row_choice['choice_name']; ?></a> <b>ทำแบบทดสอบแล้ว</b>
+                        <?php echo $row_choice['choice_name']; ?> <b style="color: red"> <font size="5">ทำแบบทดสอบแล้ว</font></b>
                       </h3>
                     </li>
 
