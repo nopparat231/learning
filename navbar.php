@@ -65,7 +65,7 @@
                 <input class="form-control mr-sm-2" type="text" placeholder="ชื่อผู้ใช้" id="Username" name="Username" required="required">
                 <input class="form-control mr-sm-2" type="Password" placeholder="รหัสผ่าน" id="Password"  name="Password" required="required"> 
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">เข้าสู่ระบบ</button>
-                <a class='nav-link text-lite' href='index.php.php' data-toggle='modal' data-target='#exampleModal'>ลืมรหัสผ่าน</a>
+                <a class='nav-link text-lite' href='index.php' data-toggle='modal' data-target='#exampleModal'>ลืมรหัสผ่าน</a>
                 <!-- <a href="resetpassword.php" type="submit" class="form-control mr-sm-2">ลืมรหัสผ่าน</a> -->
               </form>
 
