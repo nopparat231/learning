@@ -13,13 +13,7 @@
 <?php include 'navbar.php'; ?>
 <body>
 
-    <h1>You are Administrator </h1>
-    <p><strong>hi</strong> :&nbsp;<?php print_r($_SESSION);?> //show detail login
-      <?php //session_destroy();?>
-    </p>
-    <p>&nbsp;</p>
-    <p><a href="logout.php">Log out</strong></a></p>
-    <p>&nbsp;</p>
+  <?php Header("Location: scoreall.php"); ?>
 
 </body>
 </html>

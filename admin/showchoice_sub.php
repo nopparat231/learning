@@ -42,7 +42,7 @@ $totalRows_learning = mysqli_num_rows($learning);
         <div class="table-responsive text-center">
           <br>
           <?php include 'add_choice_sub.php'; ?>
-          <?php include 'edit_choice_sub.php'; ?>
+          
           <a href="showchoice_sub.php" class="btn btn-outline-success my-2 my-sm-0"  data-toggle='modal' data-target='#addchoicesubModal'>เพิ่มคำถาม</a>
           <table class="display" id="example">
            <?php if ($totalRows_learning > 0) {?>
@@ -87,8 +87,9 @@ $totalRows_learning = mysqli_num_rows($learning);
                   <td><?php echo $row_learning['answer']; ?></td>
 
                   
-                  <td><a href="#" class="btn btn-outline-warning my-2 my-sm-0" data-toggle='modal' data-target='#editchoicesubModal'>แก้ไข</a></td>
-                  <td><a href="#" class="btn btn-outline-danger my-2 my-sm-0">ลบ</a></td>
+                  <td><a href="edit_choice_sub.php?id=<?php echo $row_learning['id'];?>" class="btn btn-outline-warning my-2 my-sm-0" >แก้ไข</a></td>
+                  
+                  <td><a href="del_choice_sub.php?id=<?php echo $row_learning['id'];?>" class="btn btn-outline-danger my-2 my-sm-0" onClick="return confirm('ยืนยันการลบคำถาม');">ลบ</a></td>
                 </tr>
 
                 <?php 
