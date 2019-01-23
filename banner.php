@@ -9,19 +9,19 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="2"> </li>
           </ol>
           <div class="carousel-inner">
-            <div class="carousel-item active"> <img class="d-block img-fluid w-100" src="https://static.pingendo.com/cover-moon.svg">
+            <div class="carousel-item active"> <img class="d-block img-fluid w-100" src="img/1.jpg">
               <div class="carousel-caption">
                 <h5 class="m-0">Carousel</h5>
                 <p>with indicators</p>
               </div>
             </div>
-            <div class="carousel-item "> <img class="d-block img-fluid w-100" src="https://static.pingendo.com/cover-bubble-dark.svg">
+            <div class="carousel-item "> <img class="d-block img-fluid w-100" src="img/2.jpg">
               <div class="carousel-caption">
                 <h5 class="m-0">Carousel</h5>
                 <p>with indicators</p>
               </div>
             </div>
-            <div class="carousel-item"> <img class="d-block img-fluid w-100" src="https://static.pingendo.com/cover-bubble-light.svg">
+            <div class="carousel-item"> <img class="d-block img-fluid w-100" src="img/3.jpg">
               <div class="carousel-caption">
                 <h5 class="m-0">Carousel</h5>
                 <p>with indicators</p>

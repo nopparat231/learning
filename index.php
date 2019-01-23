@@ -29,13 +29,14 @@
             <div class="form-group row"><label class="col-2 text-left">ชื่อผู้ใช้</label>
               <div class="col-10">
                 <div class="input-group">
-                  <input type="text" name="Username" class="form-control" id="inlineFormInputGroup" required="กรุณากรอกชื่อผู้ใช้" placeholder="กรุณากรอกชื่อผู้ใช้" pattern="^[a-zA-Z0-9]+$" title="ภาษาอังกฤษหรือตัวเลขเท่านั้น" minlength="2"  ></div>
+                  <input type="text" name="Username" class="form-control" id="input-user" required="กรุณากรอกชื่อผู้ใช้ ภาษาอังกฤษเท่านั้น" placeholder="กรุณากรอกชื่อผู้ใช้" pattern="^[a-zA-Z0-9]+$" title="ภาษาอังกฤษหรือตัวเลขเท่านั้น" minlength="3" maxlength="25" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" onkeyup="user();" >
+                </div>
                 </div>
               </div>
               <div class="form-group row"> 
                 <label for="inputpasswordh" class="col-2 col-form-label">รหัสผ่าน<br></label>
                 <div class="col-10">
-                  <input type="password" name="Password" id="txtNewPassword" class="form-control" id="inputpasswordh" required="กรุณากรอกรหัสผ่าน" placeholder="กรุณากรอกรหัสผ่าน 0-9 หรือ A -z " title="ภาษาอังกฤษหรือตัวเลขเท่านั้น"  pattern="^[a-zA-Z0-9]+$" > </div>
+                  <input type="password" name="Password" id="txtNewPassword" class="form-control" id="inputpasswordh" required="กรุณากรอกรหัสผ่าน" placeholder="กรุณากรอกรหัสผ่าน" title="ภาษาอังกฤษหรือตัวเลขเท่านั้น"  pattern="^[a-zA-Z0-9]+$" > </div>
                 </div>
                 <div class="form-group row">
                  <label for="inputpasswordh" class="col-2 col-form-label text-nowrap">ยืนยันรหัสผ่าน<br></label>
@@ -114,6 +115,11 @@
           function num() {
             var element = document.getElementById('input-num');
             element.value = element.value.replace(/[^0-9]+/, '');
+          };
+
+          function user() {
+            var element = document.getElementById('input-user');
+            element.value = element.value.replace(/[^a-zA-Z0-9]+/, '');
           };
         </script>
 

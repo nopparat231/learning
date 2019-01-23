@@ -1,48 +1,40 @@
-<?php 
+
+<?php
 session_start();
-        if(isset($_REQUEST['Username'])){
-				//connection
-                  include("conn.php");
-				//รับค่า user & password
-                  $Username = $_REQUEST['Username'];
-                  $Password = $_REQUEST['Password'];
-				//query 
-                  $sql="SELECT * FROM User Where Username='".$Username."' and Password='".$Password."' ";
+include("conn.php");
+$password = $_REQUEST['Password'];
+$Username = $_REQUEST['Username'];
+echo $password;
+$strSQL = "SELECT * FROM user WHERE Username = '".mysqli_real_escape_string($con,$Username)."' 
+and Password = '".mysqli_real_escape_string($con,$password)."'";
+$objQuery = mysqli_query($con,$strSQL);
+$objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
+if(!$objResult)
+{
+  echo "<script>";
+  echo "alert(\" user หรือ  password ไม่ถูกต้อง\");"; 
+ // echo "window.history.back()";
+  echo "</script>";
 
-                  $result = mysqli_query($con,$sql);
-				
-                  if(mysqli_num_rows($result)==1){
-
-                      $row = mysqli_fetch_array($result);
-
-                      $_SESSION["UserID"] = $row["ID"];
-                      $_SESSION["User"] = $row["Firstname"]." ".$row["Lastname"];
-                      $_SESSION["Userlevel"] = $row["Userlevel"];
-
-                      if($_SESSION["Userlevel"]=="A"){ //ถ้าเป็น admin ให้กระโดดไปหน้า admin_page.php
-
-                        Header("Location: ./admin/");
-
-                      }
-
-                      if ($_SESSION["Userlevel"]=="M"){  //ถ้าเป็น member ให้กระโดดไปหน้า user_page.php
-
-                        Header("Location: index1.php");
-
-                      }
-
-                  }else{
-                    echo "<script>";
-                        echo "alert(\" user หรือ  password ไม่ถูกต้อง\");"; 
-                        echo "window.history.back()";
-                    echo "</script>";
-
-                  }
-
-        }else{
+}
+else
+{
+  $_SESSION["UserID"] = $objResult["ID"];
+  $_SESSION["User"] = $objResult["Firstname"]." ".$objResult["Lastname"];
+  $_SESSION["Userlevel"] = $objResult["Userlevel"];
 
 
-             Header("Location: index.php"); //user & password incorrect back to login again
+  session_write_close();
 
-        }
+  if($objResult["Userlevel"] == "A")
+  {
+    Header("Location: ./admin/");
+  }
+  elseif($objResult["Userlevel"]=="M")
+  {
+    Header("Location: index1.php");
+
+  }
+}
+mysqli_close($con);
 ?>

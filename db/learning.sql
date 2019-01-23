@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 16, 2019 at 11:05 AM
+-- Generation Time: Jan 23, 2019 at 05:03 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 5.6.38
 
@@ -41,7 +41,8 @@ CREATE TABLE `choice` (
 INSERT INTO `choice` (`choice_id`, `choice_name`, `video`) VALUES
 (1, 'การดูแลผู้สูงอายุ', 'https://www.youtube.com/watch?v=jyRLALwqjX8'),
 (2, 'ทดสอบ Hey Hey Hey', 'https://www.youtube.com/watch?v=32FB-gYr49Y'),
-(3, 'ทดสอบ Cat Cat Cat', 'https://www.youtube.com/watch?v=UnD2YY2XHno');
+(3, 'ทดสอบ Cat Cat Cat', 'https://www.youtube.com/watch?v=UnD2YY2XHno'),
+(6, 'ทดสอบ321', 'sfddfdfasd');
 
 -- --------------------------------------------------------
 
@@ -85,7 +86,7 @@ INSERT INTO `testing` (`id`, `choice_id`, `question`, `c1`, `c2`, `c3`, `c4`, `a
 (18, 1, 'ข้อที่ 18', 'ตัวเลือกที่ 1', 'ตัวเลือกที่ 2', 'ตัวเลือกที่ 3', 'ตัวเลือกที่ 4', 1),
 (19, 1, 'ข้อที่ 19', 'ตัวเลือกที่ 1', 'ตัวเลือกที่ 2', 'ตัวเลือกที่ 3', 'ตัวเลือกที่ 4', 2),
 (20, 1, 'ข้อที่ 20', 'ตัวเลือกที่ 1', 'ตัวเลือกที่ 2', 'ตัวเลือกที่ 3', 'ตัวเลือกที่ 4', 3),
-(21, 2, 'ข้อที่ 21', 'ตัวเลือกที่ 1', 'ตัวเลือกที่ 2', 'ตัวเลือกที่ 3', 'ตัวเลือกที่ 4', 1),
+(21, 1, 'ข้อที่ 21', 'ตัวเลือกที่ 1', 'ตัวเลือกที่ 2', 'ตัวเลือกที่ 3', 'ตัวเลือกที่ 4', 1),
 (22, 2, 'ข้อที่ 22', 'ตัวเลือกที่ 1', 'ตัวเลือกที่ 2', 'ตัวเลือกที่ 3', 'ตัวเลือกที่ 4', 2),
 (23, 2, 'ข้อที่ 23', 'ตัวเลือกที่ 1', 'ตัวเลือกที่ 2', 'ตัวเลือกที่ 3', 'ตัวเลือกที่ 4', 3),
 (24, 2, 'ข้อที่ 24', 'ตัวเลือกที่ 1', 'ตัวเลือกที่ 2', 'ตัวเลือกที่ 3', 'ตัวเลือกที่ 4', 4),
@@ -104,7 +105,9 @@ INSERT INTO `testing` (`id`, `choice_id`, `question`, `c1`, `c2`, `c3`, `c4`, `a
 (52, 3, 'ข้อที่ 7', 'ตัวเลือกที่ 1', 'ตัวเลือกที่ 2', 'ตัวเลือกที่ 3', 'ตัวเลือกที่ 4', 2),
 (53, 3, 'ข้อที่ 8', 'ตัวเลือกที่ 1', 'ตัวเลือกที่ 2', 'ตัวเลือกที่ 3', 'ตัวเลือกที่ 4', 1),
 (54, 3, 'ข้อที่ 9', 'ตัวเลือกที่ 1', 'ตัวเลือกที่ 2', 'ตัวเลือกที่ 3', 'ตัวเลือกที่ 4', 2),
-(55, 3, 'ข้อที่ 10', 'ตัวเลือกที่ 1', 'ตัวเลือกที่ 2', 'ตัวเลือกที่ 3', 'ตัวเลือกที่ 4', 3);
+(55, 3, 'ข้อที่ 10', 'ตัวเลือกที่ 1', 'ตัวเลือกที่ 2', 'ตัวเลือกที่ 3', 'ตัวเลือกที่ 4', 3),
+(56, 6, 'ทดทดทดทด13', 'ข้อที่ 1', 'ข้อที่ 2', 'ข้อที่ 3', 'ข้อที่ 4', 2),
+(57, 6, 'ทดทดทดทด15', 'ข้อที่ 1', 'ข้อที่ 2', 'ข้อที่ 3', 'ข้อที่ 4', 2);
 
 -- --------------------------------------------------------
 
@@ -128,11 +131,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`ID`, `Username`, `Password`, `Firstname`, `Lastname`, `email`, `phone`, `Userlevel`) VALUES
-(1, 'aaa', 'aaa', 'aaa', 'aaa', 'admin@gmail.com', '0900000000', 'A'),
-(2, 'bbb', 'bbb', 'bbbb', 'bbbb', 'user@gmail.com', '0900000000', 'M'),
-(9, 'หกดหกดหกด', 'หกดหกดหกด', 'หกดหกดหกด', 'หกดหกดหกด', 'dfdf@gg.com', '32', 'M'),
-(8, 'sfsf', 'sfsf', 'sdfsdfsdfsdf', 'sdfsdfsdfsdf', 'sdfd@hh.dd', '201021212', 'M'),
-(10, 'fff', 'fff', 'fff', 'fff', 'fff@gg.ff', '111111111', 'M');
+(1, 'aaa', 'aaa', 'Admin', 'Admin', 'admin@gmail.com', '0900000000', 'A'),
+(2, 'bbb', 'bbb', 'ทดทดทดท', 'สกสกส', 'user@gmail.com', '2132132132', 'M'),
+(15, 'cccc', 'bbbfgfgfg', 'ทดทดทดทcc', 'สกสกสcc', 'user@gmail.com', '2132132132', 'M');
 
 -- --------------------------------------------------------
 
@@ -153,8 +154,8 @@ CREATE TABLE `user_learning` (
 --
 
 INSERT INTO `user_learning` (`user_learning_id`, `choice_id`, `user_id`, `user_learning_bf`, `user_learning_af`) VALUES
-(10, 1, 2, 1, '1'),
-(11, 2, 8, 1, '1');
+(14, 3, 15, 2, 'ยังไม่ทำ'),
+(15, 1, 2, 5, '5');
 
 --
 -- Indexes for dumped tables
@@ -192,25 +193,25 @@ ALTER TABLE `user_learning`
 -- AUTO_INCREMENT for table `choice`
 --
 ALTER TABLE `choice`
-  MODIFY `choice_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `choice_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `testing`
 --
 ALTER TABLE `testing`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `user_learning`
 --
 ALTER TABLE `user_learning`
-  MODIFY `user_learning_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `user_learning_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
