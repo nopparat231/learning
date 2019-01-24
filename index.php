@@ -23,7 +23,7 @@
   <div class="py-3">
     <div class="container w-100">
       <div class="row">
-        <div class="col-md-6 px-5" style=""><img class="img-fluid d-block" src="https://static.pingendo.com/img-placeholder-1.svg" style="" width="450" height="400"></div>
+        <div class="col-md-6 px-5" style=""><img class="img-fluid d-block" src="https://image.freepik.com/free-vector/blogging_23-2148034010.jpg" style="" width="450" height="400"></div>
         <div class="text-right col-md-6" style="">
           <form class="" id="c_form-h" action="register_db.php" method="post">
             <div class="form-group row"><label class="col-2 text-left">ชื่อผู้ใช้</label>

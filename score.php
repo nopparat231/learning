@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html>
 
@@ -28,7 +29,7 @@ $totalRows_learning = mysqli_num_rows($learning);
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h1 class="text-center" contenteditable="true">คะแนนผู้ใช้งาน</h1>
+        <h1 class="text-center">คะแนนผู้ใช้งาน</h1>
       </div>
     </div>
   </div>
@@ -48,7 +49,7 @@ $totalRows_learning = mysqli_num_rows($learning);
                 <th scope="col">นามสกุล</th>
                 <th scope="col">บทเรียน</th>
                 <th scope="col">คะแนนก่อนเรียน</th>
-                <th scope="col" contenteditable="true">คะแนนหลังเรียน</th>
+                <th scope="col">คะแนนหลังเรียน</th>
               </tr>
             </thead>
             <tbody>

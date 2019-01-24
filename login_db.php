@@ -1,10 +1,10 @@
-
+<?php session_start();?>
 <?php
-session_start();
+
 include("conn.php");
 $password = $_REQUEST['Password'];
 $Username = $_REQUEST['Username'];
-echo $password;
+
 $strSQL = "SELECT * FROM user WHERE Username = '".mysqli_real_escape_string($con,$Username)."' 
 and Password = '".mysqli_real_escape_string($con,$password)."'";
 $objQuery = mysqli_query($con,$strSQL);
@@ -13,7 +13,7 @@ if(!$objResult)
 {
   echo "<script>";
   echo "alert(\" user หรือ  password ไม่ถูกต้อง\");"; 
- // echo "window.history.back()";
+  echo "window.history.back()";
   echo "</script>";
 
 }

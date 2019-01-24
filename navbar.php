@@ -1,11 +1,5 @@
 
- <?php
-
-if(!isset($_SESSION)) {
-     session_start();
-}
-
-  ?>
+ <?php// include 'checkLogin.php'; ?>
  <nav class="navbar navbar-expand-md bg-light navbar-light">
   <div class="container"> 
     <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar12">

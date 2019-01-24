@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html>
 
@@ -49,14 +50,14 @@
                      <li class="list-group-item">
                       <h3>
                         <i class="fa text-primary mr-2 fa-arrow-right"></i>
-                        <a href="choice.php?choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&aff=aff"><?php echo $row_choice['choice_name']; ?></a> <b style="color: #FF5733"> <font size="5"> ทำแบบทดสอบก่อนเรียนแล้ว </font></b>
+                        <a href="choice.php?choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&aff=aff"><?php echo $row_choice['choice_name']; ?></a> <b style="color: #FF5733"> <font size="3"> ทำแบบทดสอบก่อนเรียนแล้ว </font></b>
                       </h3>
                     </li>
                   <?php }else{ ?>
                     <li class="list-group-item">
                       <h3>
                         <i class="fa text-primary mr-2 fa-arrow-right"></i>
-                        <?php echo $row_choice['choice_name']; ?> <b style="color: red"> <font size="5">ทำแบบทดสอบแล้ว</font></b>
+                        <?php echo $row_choice['choice_name']; ?> <b style="color: red"> <font size="3">ทำแบบทดสอบแล้ว</font></b>
                       </h3>
                     </li>
 
@@ -68,7 +69,7 @@
                  <li class="list-group-item">
                   <h3>
                     <i class="fa text-primary mr-2 fa-arrow-right"></i>
-                    <a href="choice.php?choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&bff=bff"><?php echo $row_choice['choice_name']; ?></a> <b>ยังไม่ทำแบบทดสอบ</b>
+                    <a href="choice.php?choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&bff=bff"><?php echo $row_choice['choice_name']; ?></a> <b> <font size="3">ยังไม่ทำแบบทดสอบ</font></b>
                   </h3>
                 </li>
               <?php } ?>
