@@ -13,7 +13,7 @@
   $resultemail = mysqli_query($con,$checkemail);
   $objResult = mysqli_fetch_array($resultemail);
   $numemail = mysqli_num_rows($resultemail);
-  $massage = "<h2>สวัสดีคุญ : <b>".$objResult['Firstname']."</b></h2><br><h1> รหัสผ่านของคุณคือ : ".$objResult['Password']."</h1>";
+  $massage = "<h2>สวัสดีคุณ : <b>".$objResult['Firstname']."</b></h2><br><h1> รหัสผ่านของคุณคือ : ".$objResult['Password']."</h1>";
   if ($numemail > 0 ){
     
     require_once('./sentmailer/class.phpmailer.php');

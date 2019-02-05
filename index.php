@@ -36,12 +36,12 @@
               <div class="form-group row"> 
                 <label for="inputpasswordh" class="col-2 col-form-label">รหัสผ่าน<br></label>
                 <div class="col-10">
-                  <input type="password" name="Password" id="txtNewPassword" class="form-control" id="inputpasswordh" required="กรุณากรอกรหัสผ่าน" placeholder="กรุณากรอกรหัสผ่าน" title="ภาษาอังกฤษหรือตัวเลขเท่านั้น"  pattern="^[a-zA-Z0-9]+$" > </div>
+                  <input type="password" name="Password" id="txtNewPassword" class="form-control" id="inputpasswordh" required="กรุณากรอกรหัสผ่าน" placeholder="กรุณากรอกรหัสผ่านอย่างน้อย 6 ตัว" title="ภาษาอังกฤษหรือตัวเลขเท่านั้น"  pattern="^[a-zA-Z0-9]+$" minlength="6" maxlength="25" > </div>
                 </div>
                 <div class="form-group row">
                  <label for="inputpasswordh" class="col-2 col-form-label text-nowrap">ยืนยันรหัสผ่าน<br></label>
                  <div class="col-10">
-                  <input type="password" id="txtConfirmPassword" onkeyup="checkPasswordMatch();" class="form-control" id="inputpasswordh" title="ภาษาอังกฤษหรือตัวเลขเท่านั้น" required="กรุณากรอกยืนยันรหัสผ่าน" placeholder="กรุณากรอกยืนยันรหัสผ่าน" >
+                  <input type="password" id="txtConfirmPassword" onkeyup="checkPasswordMatch();" class="form-control" id="inputpasswordh" title="ภาษาอังกฤษหรือตัวเลขเท่านั้น" required="กรุณากรอกยืนยันรหัสผ่าน" placeholder="กรุณากรอกยืนยันรหัสผ่าน" minlength="6" maxlength="25"  >
                   <div class="registrationFormAlert" id="divCheckPasswordMatch"></div>
                 </div>
               </div>
