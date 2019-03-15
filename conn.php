@@ -1,5 +1,5 @@
 <?php
-$con = mysqli_connect("localhost", "root", "", "learning");
+$con = mysqli_connect("localhost", "root", "", "2942797_learning");
 mysqli_query($con, "SET NAMES 'utf8' ");
 if (!$con) {
     echo "Error: Unable to connect to MySQL." . PHP_EOL;

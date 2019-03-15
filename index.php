@@ -23,10 +23,10 @@
   <div class="py-3">
     <div class="container w-100">
       <div class="row">
-        <div class="col-md-6 px-5" style=""><img class="img-fluid d-block" src="https://image.freepik.com/free-vector/blogging_23-2148034010.jpg" style="" width="450" height="400"></div>
+        <div class="col-md-6 px-5" style=""><img class="img-fluid d-block" src="/img/11.jpg" style="" width="500"></div>
         <div class="text-right col-md-6" style="">
           <form class="" id="c_form-h" action="register_db.php" method="post">
-            <div class="form-group row"><label class="col-2 text-left">ชื่อผู้ใช้</label>
+            <div class="form-group row"><label class="col-2 text-left">*ชื่อผู้ใช้</label>
               <div class="col-10">
                 <div class="input-group">
                   <input type="text" name="Username" class="form-control" id="input-user" required="กรุณากรอกชื่อผู้ใช้ ภาษาอังกฤษเท่านั้น" placeholder="กรุณากรอกชื่อผู้ใช้" pattern="^[a-zA-Z0-9]+$" title="ภาษาอังกฤษหรือตัวเลขเท่านั้น" minlength="3" maxlength="25" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" onkeyup="user();" >
@@ -34,36 +34,36 @@
                 </div>
               </div>
               <div class="form-group row"> 
-                <label for="inputpasswordh" class="col-2 col-form-label">รหัสผ่าน<br></label>
+                <label for="inputpasswordh" class="col-2 col-form-label">*รหัสผ่าน<br></label>
                 <div class="col-10">
                   <input type="password" name="Password" id="txtNewPassword" class="form-control" id="inputpasswordh" required="กรุณากรอกรหัสผ่าน" placeholder="กรุณากรอกรหัสผ่านอย่างน้อย 6 ตัว" title="ภาษาอังกฤษหรือตัวเลขเท่านั้น"  pattern="^[a-zA-Z0-9]+$" minlength="6" maxlength="25" > </div>
                 </div>
                 <div class="form-group row">
-                 <label for="inputpasswordh" class="col-2 col-form-label text-nowrap">ยืนยันรหัสผ่าน<br></label>
+                 <label for="inputpasswordh" class="col-2 col-form-label text-nowrap">*ยืนยันรหัส<br></label>
                  <div class="col-10">
                   <input type="password" id="txtConfirmPassword" onkeyup="checkPasswordMatch();" class="form-control" id="inputpasswordh" title="ภาษาอังกฤษหรือตัวเลขเท่านั้น" required="กรุณากรอกยืนยันรหัสผ่าน" placeholder="กรุณากรอกยืนยันรหัสผ่าน" minlength="6" maxlength="25"  >
                   <div class="registrationFormAlert" id="divCheckPasswordMatch"></div>
                 </div>
               </div>
-              <div class="form-group row"><label class="col-2">ชื่อ</label>
+              <div class="form-group row"><label class="col-2">*ชื่อ</label>
                 <div class="col-10">
                   <div class="input-group">
                     <input type="text" name="Firstname" class="form-control" id="inlineFormInputGroup" required="กรุณากรอกชื่อ" placeholder="กรุณากรอกชื่อ" onkeyup="validate();"  title="ใส่ ก-ฮ หรือ a-z เท่านั้น"></div>
                   </div>
                 </div>
-                <div class="form-group row"><label class="col-2">นามสกุล</label>
+                <div class="form-group row"><label class="col-2">*นามสกุล</label>
                   <div class="col-10">
                     <div class="input-group">
                       <input type="text" name="Lastname" class="form-control" id="inlineFormInputGroup" required="กรุณากรอกนามสกุล" placeholder="กรุณากรอกนามสกุล" onkeyup="validate();"  title="ใส่ ก-ฮ หรือ a-z เท่านั้น"></div>
                     </div>
                   </div>
-                  <div class="form-group row"> <label for="inputmailh" class="col-2 col-form-label">อีเมล์</label>
+                  <div class="form-group row"> <label for="inputmailh" class="col-2 col-form-label">*อีเมล์</label>
                     <div class="col-10">
                       <input type="email" name="email" class="form-control" id="inputmailh" required="กรุณากรอกอีเมล์" placeholder="กรุณากรอกอีเมล์" title="กรุณาใช้ อีเมล์ ที่ใช้งานได้จริง">
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label class="col-2">เบอร์โทร<br></label>
+                    <label class="col-2">*เบอร์โทร<br></label>
                     <div class="col-10">
                       <div class="input-group">
                         <input name="phone" class="form-control" id="input-num" required="กรุณากรอกเบอร์โทร" placeholder="กรุณากรอกเบอร์โทร" value="" size="10" title="เบอร์โทร 0-9" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"

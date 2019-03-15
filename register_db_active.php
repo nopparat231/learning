@@ -9,7 +9,7 @@ if(!$objResult)
 {
   echo "<script>";
   echo "alert('การยืนยันบัญชีไม่สำเร็จ !');";
-  echo "window.location ='index.php'; ";
+  //echo "window.location ='index.php'; ";
   echo "</script>";
 
 }
@@ -25,5 +25,5 @@ else
 }
 
 
-mysqli_close($con);
+mysqli_close();
 ?>

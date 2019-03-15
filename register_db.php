@@ -76,7 +76,8 @@ if ($numemail > 0 ){ ?>
 
 			$result1 = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error());
 			$ID = mysqli_insert_id($con) or die ("Error in query: $sql " . mysqli_error());
-			$massage = "http://learning2019.atwebpages.com/register_db_active.php?sid=".$session_id."&ID=".$ID."<br>";
+			$ma = "http://learning2019.atwebpages.com/register_db_active.php?sid=".$session_id."&ID=".$ID."<br>";
+                        $massage = "<h3> กรุณากดลิ้งค์ เพื่อยืนยันการสมัคร </h3><br>".$ma;
 		}
 	//ปิดการเชื่อมต่อ database
 		mysqli_close($con);
@@ -116,7 +117,7 @@ require_once('./sentmailer/class.phpmailer.php');
 
                     	setTimeout(function () { 
                     		swal({
-                    			title: "สมัครสมาชิกสำเร็จกรุณายืนยันที่ E-mail ที่ท่าสมัคร",
+                    			title: "สมัครสมาชิกสำเร็จ กรุณายืนยันที่ E-mail ที่ท่านสมัคร",
 
                     			type: "success",
 
