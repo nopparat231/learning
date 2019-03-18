@@ -23,7 +23,7 @@
   <div class="py-3">
     <div class="container w-100">
       <div class="row">
-        <div class="col-md-6 px-5" style=""><img class="img-fluid d-block" src="/img/11.jpg" style="" width="500"></div>
+        <div class="col-md-6 px-5" style=""><img class="img-fluid d-block" src="img/11.jpg" style="" width="500"></div>
         <div class="text-right col-md-6" style="">
           <form class="" id="c_form-h" action="register_db.php" method="post">
             <div class="form-group row"><label class="col-2 text-left">*ชื่อผู้ใช้</label>
