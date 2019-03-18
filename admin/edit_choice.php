@@ -54,15 +54,7 @@ if (isset($_GET['choice_id'])) {
     </div>
   </div>
 </div>
-<div class="py-3">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <p class="mb-0">© 2014-2018 Pingendo. All rights reserved</p>
-      </div>
-    </div>
-  </div>
-</div>
+<?php include 'footer_admin.php'; ?>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
