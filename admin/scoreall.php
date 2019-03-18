@@ -13,7 +13,7 @@
 
 
 
-$query_learning = "SELECT * FROM choice as c , user as u, user_learning as l where l.choice_id = c.choice_id and l.user_id = u.id order by l.user_learning_id" ;
+$query_learning = "SELECT * FROM choice as c , user as u, user_learning as l where l.choice_id = c.choice_id and l.user_id = u.id order by l.user_learning_af desc" ;
 $learning = mysqli_query($con,$query_learning) or die(mysqli_error());
 $row_learning = mysqli_fetch_assoc($learning);
 $totalRows_learning = mysqli_num_rows($learning);
@@ -91,15 +91,7 @@ $totalRows_learning = mysqli_num_rows($learning);
     </div>
   </div>
 </div>
-<div class="py-3">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <p class="mb-0">© 2014-2018 Pingendo. All rights reserved</p>
-      </div>
-    </div>
-  </div>
-</div>
+<?php include 'footer_admin.php'; ?>
 
 
 </body>
