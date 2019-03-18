@@ -8,70 +8,70 @@
   <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.1.3.css">
 
   <style>
-  /* The container */
-  .container {
-    display: block;
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    font-size: 15px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
+    /* The container */
+    .container {
+      display: block;
+      position: relative;
+      padding-left: 35px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      font-size: 15px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
 
-  /* Hide the browser's default radio button */
-  .container input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-  }
+    /* Hide the browser's default radio button */
+    .container input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+    }
 
-  /* Create a custom radio button */
-  .checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 25px;
-    width: 25px;
-    background-color: #eee;
-    border-radius: 50%;
-  }
+    /* Create a custom radio button */
+    .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 25px;
+      width: 25px;
+      background-color: #eee;
+      border-radius: 50%;
+    }
 
-  /* On mouse-over, add a grey background color */
-  .container:hover input ~ .checkmark {
-    background-color: #ccc;
-  }
+    /* On mouse-over, add a grey background color */
+    .container:hover input ~ .checkmark {
+      background-color: #ccc;
+    }
 
-  /* When the radio button is checked, add a blue background */
-  .container input:checked ~ .checkmark {
-    background-color: #2196F3;
-  }
+    /* When the radio button is checked, add a blue background */
+    .container input:checked ~ .checkmark {
+      background-color: #2196F3;
+    }
 
-  /* Create the indicator (the dot/circle - hidden when not checked) */
-  .checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-  }
+    /* Create the indicator (the dot/circle - hidden when not checked) */
+    .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
 
-  /* Show the indicator (dot/circle) when checked */
-  .container input:checked ~ .checkmark:after {
-    display: block;
-  }
+    /* Show the indicator (dot/circle) when checked */
+    .container input:checked ~ .checkmark:after {
+      display: block;
+    }
 
-  /* Style the indicator (dot/circle) */
-  .container .checkmark:after {
-    top: 9px;
-    left: 9px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: white;
-  }
-</style>
+    /* Style the indicator (dot/circle) */
+    .container .checkmark:after {
+      top: 9px;
+      left: 9px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: white;
+    }
+  </style>
 
 
 </head>
@@ -151,7 +151,7 @@ $resultN=mysqli_fetch_array($db_queryN);
                 <ol>
 
                   <label class="container"><h5><?php echo $result["c1"];?>
-                  <input type="radio" name="c<?php echo $i;?>" value="1" checked>
+                  <input type="radio" name="c<?php echo $i;?>" value="1" required >
                   <span class="checkmark"></span></h5>
                 </label>
 
@@ -181,6 +181,8 @@ $resultN=mysqli_fetch_array($db_queryN);
   </div>
 </div>
 </div>
+</div>
+
 
 <input type="hidden" name="choice_id" value="<?php echo $choice_id ?>">
 
@@ -208,7 +210,7 @@ $resultN=mysqli_fetch_array($db_queryN);
     </div>
   </div>
 </div>
-
+</form>
 <?php if (isset($_GET['bf'])) {
   bf();
 }elseif (isset($_GET['af'])) {
@@ -332,7 +334,7 @@ function bf(){
 
 
   </div>
-<?php include 'footer.php'; ?>
+  <?php include 'footer.php'; ?>
 
 </body>
 

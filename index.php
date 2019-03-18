@@ -29,14 +29,14 @@
             <div class="form-group row"><label class="col-2 text-left">*ชื่อผู้ใช้</label>
               <div class="col-10">
                 <div class="input-group">
-                  <input type="text" name="Username" class="form-control" id="input-user" required="กรุณากรอกชื่อผู้ใช้ ภาษาอังกฤษเท่านั้น" placeholder="กรุณากรอกชื่อผู้ใช้" pattern="^[a-zA-Z0-9]+$" title="ภาษาอังกฤษหรือตัวเลขเท่านั้น" minlength="3" maxlength="25" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" onkeyup="user();" >
+                  <input type="text" name="Username" class="form-control" id="input-user" required placeholder="กรุณากรอกชื่อผู้ใช้" pattern="^[a-zA-Z0-9]+$" title="ภาษาอังกฤษหรือตัวเลขเท่านั้น" minlength="3" maxlength="25" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" onkeyup="user();" >
                 </div>
               </div>
             </div>
             <div class="form-group row"> 
               <label for="inputpasswordh" class="col-2 col-form-label">*รหัสผ่าน<br></label>
               <div class="col-10">
-                <input type="password" name="Password" id="txtNewPassword" class="form-control" id="inputpasswordh" required="กรุณากรอกรหัสผ่าน" placeholder="รหัสผ่านต้องมี ตัวใหญ่ ตัวเล็ก ตัวเลข อย่างน้อย 6 ตัว" title="รหัสผ่านต้องมี ภาษาอังกฤษตัวใหญ่ ตัวเล็ก ตัวเลข"  pattern="^[a-zA-Z0-9]+$" minlength="6" maxlength="25" >
+                <input type="password" name="Password" id="txtNewPassword" class="form-control" id="inputpasswordh" required placeholder="รหัสผ่านต้องมี ตัวใหญ่ ตัวเล็ก ตัวเลข อย่างน้อย 8 ตัวขึ้นไป" title="รหัสผ่านต้องมี ภาษาอังกฤษตัวใหญ่ ตัวเล็ก ตัวเลข 8 ตัวขึ้นไป"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" minlength="8" maxlength="25" >
                 <span id="result"></span>
 
               </div>
@@ -44,7 +44,7 @@
             <div class="form-group row">
              <label for="inputpasswordh" class="col-2 col-form-label text-nowrap">*ยืนยันรหัส<br></label>
              <div class="col-10">
-              <input type="password" id="txtConfirmPassword" onkeyup="checkPasswordMatch();" class="form-control" id="inputpasswordh" title="ภาษาอังกฤษหรือตัวเลขเท่านั้น" required="กรุณากรอกยืนยันรหัสผ่าน" placeholder="กรุณากรอกยืนยันรหัสผ่าน" minlength="6" maxlength="25"  >
+              <input type="password" id="txtConfirmPassword" onkeyup="checkPasswordMatch();" class="form-control" id="inputpasswordh" title="รหัสผ่านต้องมี ภาษาอังกฤษตัวใหญ่ ตัวเล็ก ตัวเลข 8 ตัวขึ้นไป"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="กรุณากรอกยืนยันรหัสผ่าน" minlength="6" maxlength="25"  >
               <div class="registrationFormAlert" id="divCheckPasswordMatch"></div>
             </div>
           </div>
@@ -154,7 +154,7 @@
     if (password.length < 6) { 
       $('#result').removeClass()
       $('#result').addClass('short')
-      return 'Too short' 
+      return 'รหัสสั้นเกินไป' 
     }
     
     //length is ok, lets continue.
@@ -181,19 +181,19 @@
     {
       $('#result').removeClass()
       $('#result').addClass('weak')
-      return 'Weak'     
+      return 'รหัสง่ายเกินไป'     
     }
     else if (strength == 2 )
     {
       $('#result').removeClass()
       $('#result').addClass('good')
-      return 'Good'   
+      return 'รหัสปลอดภัย'   
     }
     else
     {
       $('#result').removeClass()
       $('#result').addClass('strong')
-      return 'Strong'
+      return 'รหัสปลอดภัยมาก'
     }
   }
 });

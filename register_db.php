@@ -77,22 +77,22 @@ if ($numemail > 0 ){ ?>
 			$result1 = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error());
 			$ID = mysqli_insert_id($con) or die ("Error in query: $sql " . mysqli_error());
 			$ma = "http://learning2019.atwebpages.com/register_db_active.php?sid=".$session_id."&ID=".$ID."<br>";
-                        $massage = "<h3> กรุณากดลิ้งค์ เพื่อยืนยันการสมัคร </h3><br>".$ma;
-		}
+           $massage = "<h3> กรุณากดลิ้งค์ เพื่อยืนยันการสมัคร </h3><br>".$ma;
+      }
 	//ปิดการเชื่อมต่อ database
-		mysqli_close($con);
+      mysqli_close($con);
 
 	//จาวาสคริปแสดงข้อความเมื่อบันทึกเสร็จและกระโดดกลับไปหน้าฟอร์ม
-require_once('./sentmailer/class.phpmailer.php');
-		if($result1){
+      require_once('sentmailer/class.phpmailer.php');
+      if($result1){
 
-			
+       
 
-			$mail = new PHPMailer();
-			$mail->CharSet = "UTF-8";
+       $mail = new PHPMailer();
+       $mail->CharSet = "UTF-8";
 
-			$mail->IsHTML(true);
-			$mail->IsSMTP();
+       $mail->IsHTML(true);
+       $mail->IsSMTP();
                     $mail->SMTPAuth = true; // enable SMTP authentication
                     $mail->SMTPSecure = ""; // sets the prefix to the servier
                     $mail->Host = "free.mboxhosting.com"; // sets GMAIL as the SMTP server
@@ -107,76 +107,76 @@ require_once('./sentmailer/class.phpmailer.php');
                     
                     $mail->AddAddress($email); // to Address
 
-                        if($mail->send()){
-                    ?>
+                    if($mail->send()){
+                         ?>
 
 
-                    <script type="text/javascript">
+                         <script type="text/javascript">
 
-                    	var $ws = 'index.php';
+                             var $ws = 'index.php';
 
-                    	setTimeout(function () { 
-                    		swal({
-                    			title: "สมัครสมาชิกสำเร็จ กรุณายืนยันที่ E-mail ที่ท่านสมัคร",
+                             setTimeout(function () { 
+                                 swal({
+                                     title: "สมัครสมาชิกสำเร็จ กรุณายืนยันที่ E-mail ที่ท่านสมัคร",
 
-                    			type: "success",
+                                     type: "success",
 
-                    			confirmButtonText: "ยืนยัน"
-                    		},
-                    		function(isConfirm){
-                    			if (isConfirm) {
-                    				window.location.href = $ws;
-                    			}
-                    		}); }, 50);
+                                     confirmButtonText: "ยืนยัน"
+                                },
+                                function(isConfirm){
+                                     if (isConfirm) {
+                                         window.location.href = $ws;
+                                    }
+                               }); }, 50);
 
-                    	</script>
-
-
-                    <?php }else{ ?>
+                          </script>
 
 
-
-                    	<script type="text/javascript">
-
-                    		var $ws = 'index.php';
-
-                    		setTimeout(function () { 
-                    			swal({
-                    				title: "ส่งเมล์ไม่สำเร็จ",
-
-                    				type: "error",
-
-                    				confirmButtonText: "ลองใหม่อีกครั้ง"
-                    			},
-                    			function(isConfirm){
-                    				if (isConfirm) {
-                    					window.location.href = $ws;
-                    				}
-                    			}); }, 50);
-
-                    		</script>
+                     <?php }else{ ?>
 
 
-                    		<?php } ?>
-                                
-                               <?php }else{ ?>
-                               <script type="text/javascript">
 
-                    		var $ws = 'index.php';
+                        <script type="text/javascript">
 
-                    		setTimeout(function () { 
-                    			swal({
-                    				title: "สมัครสมาชิกไม่สำเร็จ",
+                            var $ws = 'index.php';
 
-                    				type: "error",
+                            setTimeout(function () { 
+                                swal({
+                                    title: "ส่งเมล์ไม่สำเร็จ",
 
-                    				confirmButtonText: "ลองใหม่อีกครั้ง"
-                    			},
-                    			function(isConfirm){
-                    				if (isConfirm) {
-                    					window.location.href = $ws;
-                    				}
-                    			}); }, 50);
+                                    type: "error",
 
-                    		</script>
-                               <?php }?>
+                                    confirmButtonText: "ลองใหม่อีกครั้ง"
+                               },
+                               function(isConfirm){
+                                    if (isConfirm) {
+                                        window.location.href = $ws;
+                                   }
+                              }); }, 50);
+
+                         </script>
+
+
+                    <?php } ?>
+                    
+               <?php }else{ ?>
+                   <script type="text/javascript">
+
+                       var $ws = 'index.php';
+
+                       setTimeout(function () { 
+                           swal({
+                               title: "สมัครสมาชิกไม่สำเร็จ",
+
+                               type: "error",
+
+                               confirmButtonText: "ลองใหม่อีกครั้ง"
+                          },
+                          function(isConfirm){
+                               if (isConfirm) {
+                                   window.location.href = $ws;
+                              }
+                         }); }, 50);
+
+                    </script>
+                    <?php }?>
