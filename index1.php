@@ -22,8 +22,14 @@
   $choice = mysqli_query($con,$query_choice) or die(mysqli_error());
   $row_choice = mysqli_fetch_assoc($choice);
   $totalRows_choice = mysqli_num_rows($choice);
-  ?>
 
+  $query_testing = "SELECT * FROM testing ";
+  $testing = mysqli_query($con,$query_testing) or die(mysqli_error());
+  $row_testing = mysqli_fetch_assoc($testing);
+  $totalRows_testing = mysqli_num_rows($testing);
+
+
+  ?>
 
   <div class="py-2">
     <div class="container">
@@ -47,44 +53,44 @@
                 <?php if ($totalRows_query3 > 0){ ?>
 
                   <?php if ($result3['user_learning_af'] == 'ยังไม่ทำ'){ ?>
-                     <li class="list-group-item">
-                      <h3>
-                        <i class="fa text-primary mr-2 fa-arrow-right"></i>
-                        <a href="choice.php?choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&aff=aff"><?php echo $row_choice['choice_name']; ?></a> <b style="color: #FF5733"> <font size="3"> ทำแบบทดสอบก่อนเรียนแล้ว </font></b>
-                      </h3>
-                    </li>
-                  <?php }else{ ?>
-                    <li class="list-group-item">
-                      <h3>
-                        <i class="fa text-primary mr-2 fa-arrow-right"></i>
-                        <?php echo $row_choice['choice_name']; ?> <b style="color: red"> <font size="3">ทำแบบทดสอบแล้ว</font></b>
-                      </h3>
-                    </li>
-
-                  <?php  } ?>
-                  
-
+                   <li class="list-group-item">
+                    <h3>
+                      <i class="fa text-primary mr-2 fa-arrow-right"></i>
+                      <a href="choice.php?choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&aff=aff"><?php echo $row_choice['choice_name']; ?></a> <b style="color: #FF5733"> <font size="3"> ทำแบบทดสอบก่อนเรียนแล้ว </font></b>
+                    </h3>
+                  </li>
                 <?php }else{ ?>
+                  <li class="list-group-item">
+                    <h3>
+                      <i class="fa text-primary mr-2 fa-arrow-right"></i>
+                      <?php echo $row_choice['choice_name']; ?> <b style="color: red"> <font size="3">ทำแบบทดสอบแล้ว</font></b>
+                    </h3>
+                  </li>
 
-                 <li class="list-group-item">
-                  <h3>
-                    <i class="fa text-primary mr-2 fa-arrow-right"></i>
-                    <a href="choice.php?choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&bff=bff"><?php echo $row_choice['choice_name']; ?></a> <b> <font size="3">ยังไม่ทำแบบทดสอบ</font></b>
-                  </h3>
-                </li>
-              <?php } ?>
+                <?php  } ?>
+
+
+              <?php }else{?>
+
+               <li class="list-group-item">
+                <h3>
+                  <i class="fa text-primary mr-2 fa-arrow-right"></i>
+                  <a href="choice.php?choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&bff=bff"><?php echo $row_choice['choice_name']; ?></a> <b> <font size="3">ยังไม่ทำแบบทดสอบ</font></b>
+                </h3>
+              </li>
+            <?php } ?>
 
 
 
-            <?php } while ($row_choice = mysqli_fetch_assoc($choice)); ?>
-          <?php }
-          mysqli_free_result($choice);
-          ?>
+          <?php } while ($row_choice = mysqli_fetch_assoc($choice)); ?>
+        <?php }
+        mysqli_free_result($choice);
+        ?>
 
-        </ul>
-      </div>
+      </ul>
     </div>
   </div>
+</div>
 </div>
 <?php include 'footer.php'; ?>
 
