@@ -146,7 +146,7 @@ $resultN=mysqli_fetch_array($db_queryN);
                 <input name="id" type="hidden" value="<?php echo $result['id']; ?>">
                 <input name="id<?php echo $i;?>" type="hidden" value="<?php echo $result['id']; ?>">
                 <h3><?php echo $i." ).   ".$result["question"];?></h3>
-                <input type="hidden" name="line" value="<?=$i;?>">
+                <input type="hidden" name="line" value="line">
 
                 <ol>
 
