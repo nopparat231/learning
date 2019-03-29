@@ -8,7 +8,7 @@
 
 <?php
 include('conn.php');  //ไฟล์เชื่อมต่อกับ database ที่เราได้สร้างไว้ก่อนหน้าน้ี
-	//สร้างตัวแปรเก็บค่าที่รับมาจากฟอร์ม
+  //สร้างตัวแปรเก็บค่าที่รับมาจากฟอร์ม
 $Firstname = $_REQUEST["Firstname"];
 $Lastname = $_REQUEST["Lastname"];
 $Username = $_REQUEST["Username"];
@@ -19,7 +19,7 @@ $Userlevel = "M";
 $Status = "N";
 $session_id = session_id();
 
-$check = "SELECT Username FROM user WHERE '$Username' = Username ";
+$check = "SELECT Username FROM user WHERE Username = '$Username'";
 $result = mysqli_query($con,$check);
 $num = mysqli_num_rows($result);
 
@@ -29,154 +29,144 @@ $numemail = mysqli_num_rows($resultemail);
 
 if ($numemail > 0 ){ ?>
 
-	<script type="text/javascript">
+  <script type="text/javascript">
 
-		var $ws = 'index.php';
+    var $ws = 'index.php';
 
-		setTimeout(function () { 
-			swal({
-				title: "E-mail นี้มีผู้ใช้แล้ว กรุณาลองใหม่อีกครั้ง",
+    setTimeout(function () { 
+      swal({
+        title: "E-mail นี้มีผู้ใช้แล้ว กรุณาลองใหม่อีกครั้ง",
 
-				type: "error",
+        type: "error",
 
-				confirmButtonText: "ลองใหม่อีกครั้ง"
-			},
-			function(isConfirm){
-				if (isConfirm) {
-					window.location.href = $ws;
-				}
-			}); }, 50);
-		</script>
+        confirmButtonText: "ลองใหม่อีกครั้ง"
+      },
+      function(isConfirm){
+        if (isConfirm) {
+          window.location.href = $ws;
+        }
+      }); }, 50);
+    </script>
 
-	<?php }elseif ($num > 0 ){ ?>
+  <?php }elseif ($num > 0 ){ ?>
 
-		<script type="text/javascript">
+    <script type="text/javascript">
 
-			var $ws = 'index.php';
+      var $ws = 'index.php';
 
-			setTimeout(function () { 
-				swal({
-					title: "ชื่อผู้ใช้นี้มีผู้ใช้แล้ว กรุณาลองใหม่อีกครั้ง",
+      setTimeout(function () { 
+        swal({
+          title: "ชื่อผู้ใช้นี้มีผู้ใช้แล้ว กรุณาลองใหม่อีกครั้ง",
 
-					type: "error",
+          type: "error",
 
-					confirmButtonText: "ลองใหม่อีกครั้ง"
-				},
-				function(isConfirm){
-					if (isConfirm) {
-						window.location.href = $ws;
-					}
-				}); }, 50);
-			</script>
+          confirmButtonText: "ลองใหม่อีกครั้ง"
+        },
+        function(isConfirm){
+          if (isConfirm) {
+            window.location.href = $ws;
+          }
+        }); }, 50);
+      </script>
 
-		<?php }else{
-	//เพิ่มเข้าไปในฐานข้อมูล
-			$sql = "INSERT INTO user(Firstname, Lastname, Username, Password, email ,phone , Userlevel , session_id ,  Status)
-			VALUES('$Firstname', '$Lastname', '$Username', '$Password', '$email' , '$phone' , '$Userlevel'  , '$session_id', '$Status')";
+    <?php }else{
+  //เพิ่มเข้าไปในฐานข้อมูล
+      $d = date("Y-m-d");
+      $user_date = date('Y-m-d', strtotime('+2 years', strtotime($d)));
+      $sql = "INSERT INTO user(Firstname, Lastname, Username, Password, email ,phone , Userlevel , user_date , session_id ,  Status)
+      VALUES('$Firstname', '$Lastname', '$Username', '$Password', '$email' , '$phone' , '$Userlevel'  , '$user_date', '$session_id', '$Status')";
 
-			$result1 = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error());
-			$ID = mysqli_insert_id($con) or die ("Error in query: $sql " . mysqli_error());
-			$ma = "http://learning2019.atwebpages.com/register_db_active.php?sid=".$session_id."&ID=".$ID."<br>";
-           $massage = "<h3> กรุณากดลิ้งค์ เพื่อยืนยันการสมัคร </h3><br>".$ma;
-      }
-	//ปิดการเชื่อมต่อ database
-      mysqli_close($con);
+      $result1 = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error());
+      $ID = mysqli_insert_id($con) or die ("Error in query: $sql " . mysqli_error());
+      $ma = "http://sharelearningmedia.com/register_db_active.php?sid=".$session_id."&ID=".$ID."<br>";
+     $massage = "<h3> กรุณากดลิ้งค์ เพื่อยืนยันการสมัคร </h3><br>".$ma;
+   }
+  //ปิดการเชื่อมต่อ database
+   mysqli_close($con);
 
-	//จาวาสคริปแสดงข้อความเมื่อบันทึกเสร็จและกระโดดกลับไปหน้าฟอร์ม
-      require_once('sentmailer/class.phpmailer.php');
-      if($result1){
+  //จาวาสคริปแสดงข้อความเมื่อบันทึกเสร็จและกระโดดกลับไปหน้าฟอร์ม
 
-       
+   if($result1){
 
-       $mail = new PHPMailer();
-       $mail->CharSet = "UTF-8";
+     ini_set( 'display_errors', 1 );
+     error_reporting( E_ALL );
+     $from = "sharelea@sharelearningmedia.com";
+     $to = $email;
+     $subject = "ยืนยันการสมัครสมาชิกดเว็บ sharelearningmedia.com";
+     $message = $massage;
+     $headers = "From:" . $from . "\r\n";
+     $headers .= "Content-Type: text/html; charset=utf-8\r\n";
+     $mailsend = mail($to,$subject,$message, $headers);
 
-       $mail->IsHTML(true);
-       $mail->IsSMTP();
-                    $mail->SMTPAuth = true; // enable SMTP authentication
-                    $mail->SMTPSecure = ""; // sets the prefix to the servier
-                    $mail->Host = "free.mboxhosting.com"; // sets GMAIL as the SMTP server
-                    $mail->Port = 25; // set the SMTP port for the GMAIL server
-                    $mail->Username = "learning2019@learning2019.ga"; // GMAIL username
-                    $mail->Password = 'nopparat23.'; // GMAIL password
-                    $mail->From = "learning2019@learning2019.ga"; // "name@yourdomain.com";
-                    //$mail->AddReplyTo = "support@thaicreate.com"; // Reply
-                    $mail->FromName = "learning2019";  // set from Name
-                    $mail->Subject = "ยืนยันการสมัครสมาชิก learning2019"; 
-                    $mail->Body = $massage;
-                    
-                    $mail->AddAddress($email); // to Address
+     if($mailsend){
+       ?>
 
-                    if($mail->send()){
-                         ?>
+       <script type="text/javascript">
 
+         var $ws = 'index.php';
 
-                         <script type="text/javascript">
+         setTimeout(function () { 
+           swal({
+             title: "สมัครสมาชิกสำเร็จ กรุณายืนยันที่ E-mail ที่ท่านสมัคร",
 
-                             var $ws = 'index.php';
+             type: "success",
 
-                             setTimeout(function () { 
-                                 swal({
-                                     title: "สมัครสมาชิกสำเร็จ กรุณายืนยันที่ E-mail ที่ท่านสมัคร",
+             confirmButtonText: "ยืนยัน"
+           },
+           function(isConfirm){
+             if (isConfirm) {
+               window.location.href = $ws;
+             }
+           }); }, 50);
 
-                                     type: "success",
-
-                                     confirmButtonText: "ยืนยัน"
-                                },
-                                function(isConfirm){
-                                     if (isConfirm) {
-                                         window.location.href = $ws;
-                                    }
-                               }); }, 50);
-
-                          </script>
+         </script>
 
 
-                     <?php }else{ ?>
+       <?php }else{ ?>
 
 
 
-                        <script type="text/javascript">
+        <script type="text/javascript">
 
-                            var $ws = 'index.php';
+          var $ws = 'index.php';
 
-                            setTimeout(function () { 
-                                swal({
-                                    title: "ส่งเมล์ไม่สำเร็จ",
+          setTimeout(function () { 
+            swal({
+              title: "ส่งเมล์ไม่สำเร็จ",
 
-                                    type: "error",
+              type: "error",
 
-                                    confirmButtonText: "ลองใหม่อีกครั้ง"
-                               },
-                               function(isConfirm){
-                                    if (isConfirm) {
-                                        window.location.href = $ws;
-                                   }
-                              }); }, 50);
+              confirmButtonText: "ลองใหม่อีกครั้ง"
+            },
+            function(isConfirm){
+              if (isConfirm) {
+                window.location.href = $ws;
+              }
+            }); }, 50);
 
-                         </script>
+          </script>
 
 
-                    <?php } ?>
-                    
-               <?php }else{ ?>
-                   <script type="text/javascript">
+        <?php } ?>
 
-                       var $ws = 'index.php';
+      <?php }else{ ?>
+       <script type="text/javascript">
 
-                       setTimeout(function () { 
-                           swal({
-                               title: "สมัครสมาชิกไม่สำเร็จ",
+         var $ws = 'index.php';
 
-                               type: "error",
+         setTimeout(function () { 
+           swal({
+             title: "สมัครสมาชิกไม่สำเร็จ",
 
-                               confirmButtonText: "ลองใหม่อีกครั้ง"
-                          },
-                          function(isConfirm){
-                               if (isConfirm) {
-                                   window.location.href = $ws;
-                              }
-                         }); }, 50);
+             type: "error",
 
-                    </script>
-                    <?php }?>
+             confirmButtonText: "ลองใหม่อีกครั้ง"
+           },
+           function(isConfirm){
+             if (isConfirm) {
+               window.location.href = $ws;
+             }
+           }); }, 50);
+
+         </script>
+         <?php }?>

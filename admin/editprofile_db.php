@@ -7,13 +7,13 @@
 
 
 <?php
-include('conn.php');  //ไฟล์เชื่อมต่อกับ database ที่เราได้สร้างไว้ก่อนหน้าน้ี
+include('../conn.php');  //ไฟล์เชื่อมต่อกับ database ที่เราได้สร้างไว้ก่อนหน้าน้ี
 
 	//สร้างตัวแปรเก็บค่าที่รับมาจากฟอร์ม
 $Firstname = $_REQUEST["Firstname"];
 $Lastname = $_REQUEST["Lastname"];
 
-
+$Password = $_REQUEST["Password"];
 $email = $_REQUEST["email"];
 $phone = $_REQUEST["phone"];
 $id = $_REQUEST["id"];
@@ -25,6 +25,7 @@ $sql ="UPDATE user SET
 Firstname='$Firstname',
 Lastname='$Lastname',
 
+Password='$Password',
 email='$email',
 phone='$phone'
 WHERE id=$id

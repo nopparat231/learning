@@ -1,5 +1,10 @@
 
- <?php// include 'checkLogin.php'; ?>
+<?php
+if(session_status() == PHP_SESSION_NONE){
+    //session has not started
+  session_start();
+}
+?>
  <nav class="navbar navbar-expand-md bg-light navbar-light">
   <div class="container"> 
     <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar12">
@@ -20,10 +25,12 @@
               <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ข้อมูลผู้ใช้</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" href="score.php?user_id=<?php echo $user_id; ?>">คะแนนผู้ใช้</a>
-                <a class="dropdown-item" href="editprofile.php?user_id=<?php echo $user_id; ?>">แก้ไขข้อมูล</a>
+                <a class="dropdown-item" href="editprofile_show.php?user_id=<?php echo $user_id; ?>">แก้ไขข้อมูล</a>
+                 <a class="dropdown-item" href="edit_password.php?user_id=<?php echo $user_id; ?>">เปลี่ยนรหัสผ่าน</a>
 
               </div>
             </li>
+            <a class="nav-link" href="score_all.php">คะแนนผู้ใช้ทั้งหมด</a> </li>
           </ul>
 
         <?php }else{ ?>

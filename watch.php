@@ -42,6 +42,7 @@ $totalRows_watch = mysqli_num_rows($watch);
             <?php if ($totalRows_watch > 0) {?>
 
               <?php
+              $cff = isset($_GET['cff']);
               $url = $row_watch['video'];
               preg_match('/[\\?\\&]v=([^\\?\\&]+)/', $url, $matches);
               $id = $matches[1];
@@ -49,10 +50,17 @@ $totalRows_watch = mysqli_num_rows($watch);
               $height = '450px';
               ?>
 
-              <iframe id="existing-iframe-example" type="text/html" width="<?php echo $width ?>" height="<?php echo $height ?>"
-                src="https://www.youtube.com/embed/<?php echo $id ?>?enablejsapi=1&autoplay=0&amp;controls=0&amp;rel=0&amp;fs=0&amp;enablejsapi=1" frameborder="0" style="border: solid 4px #37474F">
-                  
+              <?php if ($cff <> ''): ?>
+                <iframe id="existing-iframe-example" type="text/html" width="<?php echo $width ?>" height="<?php echo $height ?>"
+                  src="https://www.youtube.com/embed/<?php echo $id ?>?enablejsapi=1&autoplay=0&amp;controls=1&amp;rel=0&amp;fs=0&amp;enablejsapi=1" frameborder="0" style="border: solid 4px #37474F">
+
                 </iframe> 
+                <?php else: ?>
+                  <iframe id="existing-iframe-example" type="text/html" width="<?php echo $width ?>" height="<?php echo $height ?>"
+                    src="https://www.youtube.com/embed/<?php echo $id ?>?enablejsapi=1&autoplay=0&amp;controls=0&amp;rel=0&amp;fs=0&amp;enablejsapi=1" frameborder="0" style="border: solid 4px #37474F">
+
+                  </iframe> 
+                <?php endif ?>
 
 
 
@@ -63,14 +71,27 @@ $totalRows_watch = mysqli_num_rows($watch);
         </div>
       </div>
     </div>
-    <div class="py-2">
+   <?php
+
+    if ($cff <> '') { ?>
+     <div class="py-2">
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center">
-            <a class="btn btn-secondary" id="npbutton" style="display: none;" href="choice.php?choice_id=<?php echo $row_watch['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&aff=aff">ทำแบบทดสอบหลังเรียน</a></div>
+            <a class="btn btn-success" href="choice.php?choice_id=<?php echo $row_watch['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&aff=aff">ทำแบบทดสอบหลังเรียน</a></div>
           </div>
         </div>
       </div>
+    <?php }else{ ?>
+      <div class="py-2">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <a class="btn btn-secondary" id="npbutton" style="display: none;" href="choice.php?choice_id=<?php echo $row_watch['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&aff=aff">ทำแบบทดสอบหลังเรียน</a></div>
+            </div>
+          </div>
+        </div>
+      <?php } ?>
       <?php include 'footer.php'; ?>
     </body>
 

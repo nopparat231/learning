@@ -97,7 +97,7 @@ if (isset($_GET['id'])) {
   <div class="form-group row"> 
    <label for="inputmailh" class="col-2 col-form-label">คำตอบ</label>
    <div class="col-10">
-    <input type="text" class="form-control" id="form29" required placeholder="กรุณากรอกข้อที่ 4" name="answer" value="<?php echo $row_editc['answer'] ?>" id="input-num" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "1" minlength="1" onkeyup="num();">
+    <input type="number" class="form-control"  id="input-num" required  placeholder="คำตอบเป็นตัวเลข เช่น 1 , 2 , 3 , 4"name="answer" value="<?php echo $row_editc['answer'] ?>" id="input-num" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "1" minlength="1" onkeyup="num();">
   </div>
 </div>
 

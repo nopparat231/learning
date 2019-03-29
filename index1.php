@@ -18,7 +18,7 @@
   <?php 
 
 
-  $query_choice = "SELECT * FROM choice ORDER BY choice_id";
+  $query_choice = "SELECT * FROM choice WHERE choice_status <> 1 ORDER BY choice_id";
   $choice = mysqli_query($con,$query_choice) or die(mysqli_error());
   $row_choice = mysqli_fetch_assoc($choice);
   $totalRows_choice = mysqli_num_rows($choice);
@@ -49,21 +49,21 @@
                 $totalRows_query3 = mysqli_num_rows($db_query3);
 
                 ?>
-
                 <?php if ($totalRows_query3 > 0){ ?>
 
                   <?php if ($result3['user_learning_af'] == 'ยังไม่ทำ'){ ?>
-                   <li class="list-group-item">
+                   <li class="list-group">
                     <h3>
-                      <i class="fa text-primary mr-2 fa-arrow-right"></i>
+
                       <a href="choice.php?choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&aff=aff"><?php echo $row_choice['choice_name']; ?></a> <b style="color: #FF5733"> <font size="3"> ทำแบบทดสอบก่อนเรียนแล้ว </font></b>
                     </h3>
                   </li>
+
                 <?php }else{ ?>
-                  <li class="list-group-item">
+                  <li class="list-group">
                     <h3>
-                      <i class="fa text-primary mr-2 fa-arrow-right"></i>
-                       <a href="watch.php?choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&aff=aff"><?php echo $row_choice['choice_name']; ?></a> <b style="color: red"> <font size="3">ทำแบบทดสอบแล้ว</font></b>
+
+                      <a href="watch.php?choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&aff=aff&cff"><?php echo $row_choice['choice_name']; ?></a> <b style="color: red"> <font size="3">ทำแบบทดสอบแล้ว</font></b>
                     </h3>
                   </li>
 
@@ -72,18 +72,22 @@
 
               <?php }else{?>
 
-               <li class="list-group-item">
+               <li class="list-group">
                 <h3>
-                  <i class="fa text-primary mr-2 fa-arrow-right"></i>
+
                   <a href="choice.php?choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&bff=bff"><?php echo $row_choice['choice_name']; ?></a> <b> <font size="3">ยังไม่ทำแบบทดสอบ</font></b>
                 </h3>
               </li>
             <?php } ?>
 
-
+            <hr>
 
           <?php } while ($row_choice = mysqli_fetch_assoc($choice)); ?>
-        <?php }
+
+        <?php }else{ ?>
+<center><h3>ยังไม่มีสื่อการเรียนรู้</h3></center>
+
+     <?php   }
         mysqli_free_result($choice);
         ?>
 
@@ -91,9 +95,16 @@
     </div>
   </div>
 </div>
-</div>
+
+  <style>
+        .footer {
+         position: fixed;
+         bottom: 0;
+         left: 0;
+         width: 100%;
+         color: white;
+         text-align: center;
+       }
+     </style>
 <?php include 'footer.php'; ?>
-
-</body>
-
-</html>
+</div>

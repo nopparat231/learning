@@ -15,7 +15,7 @@ if(session_status() == PHP_SESSION_NONE){
   <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.1.3.css">
 </head>
 <?php 
-include('conn.php'); 
+include('../conn.php'); 
 $user_id = $_GET['user_id'];
 
 $check = "SELECT * FROM user WHERE id = $user_id ";
@@ -46,7 +46,18 @@ $num = mysqli_fetch_assoc($result);
                 <?php echo($num['Username'])?></div>
               </div>
             </div>
-        
+            <div class="form-group row"> 
+              <label for="inputpasswordh" class="col-2 col-form-label">รหัสผ่าน<br></label>
+              <div class="col-10">
+                <input type="password" name="Password" id="txtNewPassword" class="form-control" id="inputpasswordh" required="กรุณากรอกรหัสผ่าน" placeholder="รหัสผ่านต้องมี ตัวใหญ่ ตัวเล็ก ตัวเลข อย่างน้อย 8 ตัวขึ้นไป" title="รหัสผ่านต้องมี ภาษาอังกฤษตัวใหญ่ ตัวเล็ก ตัวเลข 8 ตัวขึ้นไป"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" minlength="8" maxlength="25" value="<?php echo($num['Password'])?>"> </div>
+              </div>
+              <div class="form-group row">
+               <label for="inputpasswordh" class="col-2 col-form-label text-nowrap">ยืนยันรหัสผ่าน<br></label>
+               <div class="col-10">
+                <input type="password" id="txtConfirmPassword" onkeyup="checkPasswordMatch();" class="form-control" id="inputpasswordh" required="กรุณากรอกยืนยันรหัสผ่าน" placeholder="กรุณากรอกยืนยันรหัสผ่าน"  title="รหัสผ่านต้องมี ภาษาอังกฤษตัวใหญ่ ตัวเล็ก ตัวเลข 8 ตัวขึ้นไป" minlength="8" maxlength="25" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" value="<?php echo($num['Password'])?>">
+                <div class="registrationFormAlert" id="divCheckPasswordMatch"></div>
+              </div>
+            </div>
             <div class="form-group row"><label class="col-2">ชื่อ</label>
               <div class="col-10">
                 <div class="input-group">
@@ -93,7 +104,7 @@ $num = mysqli_fetch_assoc($result);
           </div>
 
         </div>
-        <?php include 'footer.php'; ?>
+        <?php include 'footer_admin.php'; ?>
 
       </body>
 

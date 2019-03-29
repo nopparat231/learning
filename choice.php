@@ -73,20 +73,17 @@
     }
   </style>
 
-
-</head>
-
 <?php include 'conn.php'; ?>
 <?php 
 
-$choice_id = $_GET['choice_id'];
-$user_id = $_GET['user_id'];
+$choice_id = $_REQUEST['choice_id'];
+$user_id = $_REQUEST['user_id'];
 
-$sql="SELECT * From testing WHERE choice_id = $choice_id order by rand() limit 21";
+$sql="SELECT * From testing WHERE choice_id = '$choice_id' and status <> 1 order by rand() limit 21";
 $db_query=mysqli_query($con,$sql) or die(mysqli_error());
 $result=mysqli_fetch_array($db_query);
 
-$sqln="SELECT * From choice WHERE choice_id = $choice_id ";
+$sqln="SELECT * From choice WHERE choice_id = $choice_id and choice_status <> 1 ";
 $db_queryN=mysqli_query($con,$sqln) or die(mysqli_error());
 $resultN=mysqli_fetch_array($db_queryN);
 
@@ -104,11 +101,11 @@ $resultN=mysqli_fetch_array($db_queryN);
           <div class="col-md-12">
             <h1 class="text-center"><b>
 
-              <?php if (isset($_GET['bff'])){ ?>
+              <?php if (isset($_REQUEST['bff'])){ ?>
                 แบบทดสอบก่อนเรียน <?php echo $resultN['choice_name']; ?>
-              <?php }elseif(isset($_GET['aff'])){ ?>
+              <?php }elseif(isset($_REQUEST['aff'])){ ?>
                 แบบทดสอบหลังเรียน <?php echo $resultN['choice_name']; ?>
-              <?php }elseif (isset($_GET['af'])) { ?>
+              <?php }elseif (isset($_REQUEST['af'])) { ?>
                 เฉลยแบบทดสอบ <?php echo $resultN['choice_name']; ?>
               <?php } ?>
 
@@ -117,7 +114,7 @@ $resultN=mysqli_fetch_array($db_queryN);
         </div>
       </div>
     </div>
-    <form name="form1" method="get" action="">
+    <form name="form1" method="post" action="">
       <div class="py-3" style="">
         <div class="container">
           <div class="row">
@@ -126,7 +123,7 @@ $resultN=mysqli_fetch_array($db_queryN);
             <div class="col-md-10">
               <?php 
 
-              if (isset($_GET['af'])) {
+              if (isset($_REQUEST['af'])) {
                 include 'answer.php';
               }else{
 
@@ -146,7 +143,7 @@ $resultN=mysqli_fetch_array($db_queryN);
                 <input name="id" type="hidden" value="<?php echo $result['id']; ?>">
                 <input name="id<?php echo $i;?>" type="hidden" value="<?php echo $result['id']; ?>">
                 <h3><?php echo $i." ).   ".$result["question"];?></h3>
-                <input type="hidden" name="line" value="line">
+                <input type="hidden" name="line" value="<?=$i;?>">
 
                 <ol>
 
@@ -189,9 +186,9 @@ $resultN=mysqli_fetch_array($db_queryN);
 <input type="hidden" name="user_id" value="<?php echo $user_id ?>">
 
 
-<?php if (isset($_GET['aff'])){ ?>
+<?php if (isset($_REQUEST['aff'])){ ?>
   <input type="hidden" name="af" value="af" />
-<?php }elseif(isset($_GET['bff'])){ ?>
+<?php }elseif(isset($_REQUEST['bff'])){ ?>
  <input type="hidden" name="bf" value="bf" />
 <?php } ?>
 
@@ -200,7 +197,7 @@ $resultN=mysqli_fetch_array($db_queryN);
   <div class="container">
     <div class="row">
       <div class="col-md-12 text-center">
-        <?php if (isset($_GET['af'])) { ?>
+        <?php if (isset($_REQUEST['af'])) { ?>
          <a href="score.php?user_id=<?php echo $user_id ?>" class="btn btn-secondary" type="button" >ดูคะแนนรวม</a>
        <?php }else{ ?>
         <button class="btn btn-secondary" type="submit" >ส่งคำตอบ</button>
@@ -211,9 +208,9 @@ $resultN=mysqli_fetch_array($db_queryN);
   </div>
 </div>
 </form>
-<?php if (isset($_GET['bf'])) {
+<?php if (isset($_REQUEST['bf'])) {
   bf();
-}elseif (isset($_GET['af'])) {
+}elseif (isset($_REQUEST['af'])) {
 
   af();
 } ?>
@@ -223,25 +220,25 @@ $resultN=mysqli_fetch_array($db_queryN);
 
 function bf(){
 
-  $choice_id = $_GET['choice_id'];
-  $user_id = $_GET['user_id'];
+  $choice_id = $_REQUEST['choice_id'];
+  $user_id = $_REQUEST['user_id'];
 
   $score =0;
 
 
-  $line = $_GET['line']+1;
+  $line = $_REQUEST['line']+1;
   for ($i=1; $i < $line; $i++) { 
 
 
-    if($_GET["c$i"] == $_GET["answer$i"])
+    if($_REQUEST["c$i"] == $_REQUEST["answer$i"])
     {
       $score=$score+1;
     }
   }
   include 'conn.php';
+$user_learning_af = 'ยังไม่ทำ';
+  $sql1 = "INSERT INTO user_learning (choice_id, user_id , user_learning_bf , user_learning_af , user_learning_status) VALUES('$choice_id', '$user_id', '$score','$user_learning_af' , '0')";
 
-  $user_learning_af = 'ยังไม่ทำ';
-  $sql1 = "INSERT INTO user_learning VALUES(null, '$choice_id', '$user_id', '$score','$user_learning_af')";
 
   $result1 = mysqli_query($con, $sql1) or die ("Error in query: $sql1 " . mysqli_error());
 
@@ -281,17 +278,17 @@ function bf(){
 
   function af(){
 
-    $choice_id = $_GET['choice_id'];
-    $user_id = $_GET['user_id'];
-    $user_learning_af = $_GET['af'];
+    $choice_id = $_REQUEST['choice_id'];
+    $user_id = $_REQUEST['user_id'];
+    $user_learning_af = $_REQUEST['af'];
     $score =0;
 
 
-    $line = $_GET['line']+1;
+    $line = $_REQUEST['line']+1;
     for ($i=1; $i < $line; $i++) { 
 
 
-      if($_GET["c$i"] == $_GET["answer$i"])
+      if($_REQUEST["c$i"] == $_REQUEST["answer$i"])
       {
         $score=$score+1;
       }
@@ -334,8 +331,8 @@ function bf(){
 
 
   </div>
-  <?php include 'footer.php'; ?>
+ 
 
 </body>
-
+ <?php include 'footer.php'; ?>
 </html>
