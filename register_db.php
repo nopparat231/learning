@@ -149,24 +149,5 @@ if ($numemail > 0 ){ ?>
 
         <?php } ?>
 
-      <?php }else{ ?>
-       <script type="text/javascript">
-
-         var $ws = 'index.php';
-
-         setTimeout(function () { 
-           swal({
-             title: "สมัครสมาชิกไม่สำเร็จ",
-
-             type: "error",
-
-             confirmButtonText: "ลองใหม่อีกครั้ง"
-           },
-           function(isConfirm){
-             if (isConfirm) {
-               window.location.href = $ws;
-             }
-           }); }, 50);
-
-         </script>
-         <?php }?>
+      <?php }?>
+    
