@@ -13,31 +13,25 @@
   $resultemail = mysqli_query($con,$checkemail);
   $objResult = mysqli_fetch_array($resultemail);
   $numemail = mysqli_num_rows($resultemail);
-  $massage = "<h2>สวัสดีคุณ : <b>".$objResult['Firstname']."</b></h2><br><h1> รหัสผ่านของคุณคือ : ".$objResult['Password']."</h1>";
+  $massage = "<h2>สวัสดีคุณ : <b>".$objResult['Firstname']."</b></h2><br><h2> กดที่ลิ้งค์เพื่อรีเซ็ตรหัสผ่าน : http://learning2019.atwebpages.com/resetpassword_show.php?user_id=".$objResult['ID']."</h2>";
   if ($numemail > 0 ){
     
-    require_once('./sentmailer/class.phpmailer.php');
+    //require_once('sentmailer/class.phpmailer.php');
 
-    $mail = new PHPMailer();
-    $mail->CharSet = "UTF-8";
+      ini_set( 'display_errors', 1 );
+    error_reporting( E_ALL );
+    $from = "learning2019@learning2019.ga";
+    $to = $email;
+    $subject = "รหัสผ่านสำหรับเว็บ learning2019";
+    $message = $massage;
+    $headers = "From:" . $from . "\r\n";
+    $headers .= "Content-Type: text/html; charset=utf-8\r\n";
+    $headers .= "MIME-Version: 1.0 \r\n";
+    $mailsend = mail($to,$subject,$message, $headers);
     
-    $mail->IsHTML(true);
-    $mail->IsSMTP();
-                    $mail->SMTPAuth = true; // enable SMTP authentication
-                    $mail->SMTPSecure = ""; // sets the prefix to the servier
-                    $mail->Host = "free.mboxhosting.com"; // sets GMAIL as the SMTP server
-                    $mail->Port = 25; // set the SMTP port for the GMAIL server
-                    $mail->Username = "learning2019@learning2019.ga"; // GMAIL username
-                    $mail->Password = 'nopparat23.'; // GMAIL password
-                    $mail->From = "learning2019@learning2019.ga"; // "name@yourdomain.com";
-                    //$mail->AddReplyTo = "support@thaicreate.com"; // Reply
-                    $mail->FromName = "learning2019";  // set from Name
-                    $mail->Subject = "รหัสผ่านสำหรับเว็บ learning2019"; 
-                    $mail->Body = $massage;
-                    
-                    $mail->AddAddress($email); // to Address
+   
 
-                    if($mail->send()) {
+                    if($mailsend) {
                      
                       ?>
 

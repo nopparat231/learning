@@ -1,4 +1,13 @@
-<?php session_start();?>
+<?php
+ini_set('error_reporting', 0);
+ini_set('display_errors', 0);
+?>
+<?php
+if(session_status() == PHP_SESSION_NONE){
+    //session has not started
+  session_start();
+}
+?>
 <meta charset="UTF-8" />
 
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
