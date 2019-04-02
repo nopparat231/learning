@@ -1,4 +1,3 @@
-
 <?php
 ini_set('error_reporting', 0);
 ini_set('display_errors', 0);
@@ -9,6 +8,7 @@ if(session_status() == PHP_SESSION_NONE){
   session_start();
 }
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -72,7 +72,7 @@ $num = mysqli_fetch_assoc($result);
                               <div class="col-md-12 text-center">
                                 <button name="btn" class="btn btn-success text-light mx-1" >ยืนยัน</button>
 
-                                <a class="btn btn-danger text-light mx-1" href="index1.php">ยกเลิก</a>
+                                <a class="btn btn-danger text-light mx-1" href="index.php">ยกเลิก</a>
                               </div>
                             </div>
                           </div>

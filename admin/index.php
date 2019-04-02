@@ -1,4 +1,3 @@
-
 <?php
 ini_set('error_reporting', 0);
 ini_set('display_errors', 0);
@@ -24,7 +23,7 @@ if(session_status() == PHP_SESSION_NONE){
 
 
 
-$query_learning = "SELECT * FROM choice as c , user as u, user_learning as l where l.choice_id = c.choice_id and l.user_id = u.id order by l.user_learning_af desc" ;
+$query_learning = "SELECT * FROM choice as c , user as u, user_learning as l where l.choice_id = c.choice_id and l.user_id = u.id order by convert(l.user_learning_af, UNSIGNED INTEGER) DESC" ;
 $learning = mysqli_query($con,$query_learning) or die(mysqli_error());
 $row_learning = mysqli_fetch_assoc($learning);
 $totalRows_learning = mysqli_num_rows($learning);

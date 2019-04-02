@@ -1,15 +1,3 @@
-
-<?php
-ini_set('error_reporting', 0);
-ini_set('display_errors', 0);
-?>
-<?php
-if(session_status() == PHP_SESSION_NONE){
-    //session has not started
-  session_start();
-}
-?>
-
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
   <div class="container"> 
     <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar12">

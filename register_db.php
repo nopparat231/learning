@@ -1,13 +1,4 @@
-<?php
-ini_set('error_reporting', 0);
-ini_set('display_errors', 0);
-?>
-<?php
-if(session_status() == PHP_SESSION_NONE){
-    //session has not started
-  session_start();
-}
-?>
+<?php session_start();?>
 <meta charset="UTF-8" />
 
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
@@ -87,7 +78,7 @@ if ($numemail > 0 ){ ?>
 
       $result1 = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error());
       $ID = mysqli_insert_id($con) or die ("Error in query: $sql " . mysqli_error());
-      $ma = "http://sharelearningmedia.com/register_db_active.php?sid=".$session_id."&ID=".$ID."<br>";
+      $ma = "http://learning2019.atwebpages.com/register_db_active.php?sid=".$session_id."&ID=".$ID."<br>";
      $massage = "<h3> กรุณากดลิ้งค์ เพื่อยืนยันการสมัคร </h3><br>".$ma;
    }
   //ปิดการเชื่อมต่อ database
@@ -105,6 +96,7 @@ if ($numemail > 0 ){ ?>
      $message = $massage;
      $headers = "From:" . $from . "\r\n";
      $headers .= "Content-Type: text/html; charset=utf-8\r\n";
+     $headers .= "MIME-Version: 1.0 \r\n";
      $mailsend = mail($to,$subject,$message, $headers);
 
      if($mailsend){
@@ -159,4 +151,3 @@ if ($numemail > 0 ){ ?>
         <?php } ?>
 
       <?php }?>
-    

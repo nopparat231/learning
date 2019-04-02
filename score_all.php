@@ -1,13 +1,4 @@
-<?php
-ini_set('error_reporting', 0);
-ini_set('display_errors', 0);
-?>
-<?php
-if(session_status() == PHP_SESSION_NONE){
-    //session has not started
-  session_start();
-}
-?>
+<?php session_start();?>
 <!DOCTYPE html>
 <html>
 
@@ -21,7 +12,7 @@ if(session_status() == PHP_SESSION_NONE){
 <?php include 'conn.php'; ?>
 <?php 
 
-$query_learning = "SELECT * FROM choice as c , user as u, user_learning as l where l.user_learning_status <> 1 and l.choice_id = c.choice_id and l.user_id = u.id order by  convert(l.user_learning_af, UNSIGNED INTEGER) desc" ;
+$query_learning = "SELECT * FROM choice as c , user as u, user_learning as l where l.user_learning_status <> 1 and l.choice_id = c.choice_id and l.user_id = u.id ORDER BY convert(l.user_learning_af, UNSIGNED INTEGER) DESC" ;
 $learning = mysqli_query($con,$query_learning) or die(mysqli_error());
 $row_learning = mysqli_fetch_assoc($learning);
 $totalRows_learning = mysqli_num_rows($learning);
