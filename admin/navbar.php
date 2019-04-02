@@ -14,7 +14,7 @@
         <ul class="navbar-nav mx-auto">
 
           <li class="nav-item"> <a class="nav-link" href="scoreall.php">คะแนนผู้ใช้งานทั้งหมด</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="showchoice.php">หมวดหมู่ทั้งหมด</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="showchoice.php">วิดีโอทั้งหมด</a> </li>
           <li class="nav-item"> <a class="nav-link" href="showchoice_sub.php">คำถามทั้งหมด</a> </li>
           <li class="nav-item"> <a class="nav-link" href="show_user.php">ผู้ใช้งานทั้งหมด</a> </li>
 

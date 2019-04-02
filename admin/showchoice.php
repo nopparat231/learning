@@ -31,7 +31,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h1 class="text-center" >หมวดหมู่ทั้งหมด</h1>
+        <h1 class="text-center" >วิดีโอทั้งหมด</h1>
       </div>
     </div>
   </div>
@@ -49,7 +49,7 @@
           
 
           
-          <a href="showchoice.php" class="btn btn-outline-success my-2 my-sm-0" data-toggle='modal' data-target='#addchoiceModal'>เพิ่มหมวดหมู่</a>
+          <a href="showchoice.php" class="btn btn-outline-success my-2 my-sm-0" data-toggle='modal' data-target='#addchoiceModal'>เพิ่มวิดีโอ</a>
           <table class="display" id="example">
            <?php if ($totalRows_learning > 0) {?>
 

@@ -56,7 +56,7 @@ $totalRows_learning = mysqli_num_rows($learning);
                 <th scope="col">ตัวเลือกที่2</th>
                 <th scope="col">ตัวเลือกที่3</th>
                 <th scope="col">ตัวเลือกที่4</th>
-                <th scope="col">คำตอบ</th>
+                <th scope="col">ตัวเลือกที่ถูกต้อง</th>
                 
                 <th scope="col" width="5">แก้ไข</th>
                 <th scope="col" width="5">ลบ</th>
