@@ -8,7 +8,7 @@ if(session_status() == PHP_SESSION_NONE){
   session_start();
 }
 ?>
-
+<?php include 'datatables.php'; ?>
 <!DOCTYPE html>
 <html>
 
