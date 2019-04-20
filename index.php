@@ -23,7 +23,9 @@
   <div class="py-3">
     <div class="container w-100">
       <div class="row">
-        <div class="col-md-6 px-5" style=""><img class="img-fluid d-block" src="img/11.jpg" style="" width="500"></div>
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/9fLImzaQs4A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
         <div class="text-right col-md-6" style="">
           <form class="" id="c_form-h" action="register_db.php" method="post">
             <div class="form-group row"><label class="col-2 text-left">*ชื่อผู้ใช้</label>
@@ -88,6 +90,7 @@
                 </div>
               </form>
             </div>
+            
           </div>
         </div>
       </div>

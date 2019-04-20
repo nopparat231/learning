@@ -13,16 +13,16 @@
   $resultemail = mysqli_query($con,$checkemail);
   $objResult = mysqli_fetch_array($resultemail);
   $numemail = mysqli_num_rows($resultemail);
-  $massage = "<h2>สวัสดีคุณ : <b>".$objResult['Firstname']."</b></h2><br><h2> กดที่ลิ้งค์เพื่อรีเซ็ตรหัสผ่าน : http://learning2019.atwebpages.com/resetpassword_show.php?user_id=".$objResult['ID']."</h2>";
+  $massage = "<h2>สวัสดีคุณ : <b>".$objResult['Firstname']."</b></h2><br><h2> กดที่ลิ้งค์เพื่อรีเซ็ตรหัสผ่าน : http://healthcare-elderly.sharelearningmedia.com/resetpassword_show.php?user_id=".$objResult['ID']."</h2>";
   if ($numemail > 0 ){
     
     //require_once('sentmailer/class.phpmailer.php');
 
       ini_set( 'display_errors', 1 );
     error_reporting( E_ALL );
-    $from = "learning2019@learning2019.ga";
+    $from = "service@healthcare-elderly.sharelearningmedia.com/";
     $to = $email;
-    $subject = "รหัสผ่านสำหรับเว็บ learning2019";
+    $subject = "รหัสผ่านสำหรับเว็บ healthcare-elderly.sharelearningmedia.com";
     $message = $massage;
     $headers = "From:" . $from . "\r\n";
     $headers .= "Content-Type: text/html; charset=utf-8\r\n";
