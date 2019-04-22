@@ -126,9 +126,9 @@ $totalRows_watch = mysqli_num_rows($watch);
   function changeBorderColor(playerStatus) {
     var color;
     if (playerStatus == -1) {
-      document.getElementById("npbutton").style.display = "none";// unstarted = gray
+      document.getElementById("npbutton").style.display = "none";// unstarted = ยังไม่จบ
     } else if (playerStatus == 0) {
-      document.getElementById("npbutton").style.display = "block"; // ended = yellow
+      document.getElementById("npbutton").style.display = "block"; // ended = จบ
     } else if (playerStatus == 1) {
       color = "#33691E"; // playing = green
     } else if (playerStatus == 2) {

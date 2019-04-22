@@ -45,9 +45,9 @@
       background-color: #ccc;
     }
 
-    /* When the radio button is checked, add a blue background */
+    /* เปลี่ยนสี ปุ่มกด */
     .container input:checked ~ .checkmark {
-      background-color: #2196F3;
+      background-color: #F7512D;
     }
 
     /* Create the indicator (the dot/circle - hidden when not checked) */
@@ -148,12 +148,12 @@ $resultN=mysqli_fetch_array($db_queryN);
                 <ol>
 
                   <label class="container"><h5><?php echo $result["c1"];?>
-                  <input type="radio" name="c<?php echo $i;?>" value="1" required >
+                  <input type="radio" name="c<?php echo $i;?>" value="1" required  >
                   <span class="checkmark"></span></h5>
                 </label>
 
                 <label class="container"><h5><?php echo $result["c2"];?>
-                <input type="radio" name="c<?php echo $i;?>" value="2">
+                <input type="radio" name="c<?php echo $i;?>" value="2" >
                 <span class="checkmark"></span></h5>
               </label>
 
