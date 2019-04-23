@@ -23,13 +23,15 @@ for ($i=1; $i < 21; $i++) {
 
     echo "<h3>" . $i . " )  ".$resulta['question']."</h3>";
 
+$cnn = $resulta["c$cn"];
 
-    $cnn = $resulta["c$cn"];
+    $ann = $resulta["c$an"];
 
     ?>
 
     <h3>
-
+      
+      <?php // echo "<br> เฉลย :".$ann; ?>
       <?php  echo "คำตอบของคุณ :   ".$cnn; ?>
 
     </h3>

@@ -50,7 +50,7 @@
 
           
           <a href="showchoice.php" class="btn btn-outline-success my-2 my-sm-0" data-toggle='modal' data-target='#addchoiceModal'>เพิ่มวิดีโอ</a>
-          <table class="display" id="example">
+          <table class="table table-striped table-borderless" id="example">
            <?php if ($totalRows_learning > 0) {?>
 
             <thead>
@@ -61,6 +61,7 @@
                 
                 <th scope="col" width="5">แก้ไข</th>
                 <th scope="col" width="5">ยกเลิก</th>
+                <th scope="col" width="5">ลบ</th>
               </tr>
             </thead>
             <tbody>
@@ -91,6 +92,10 @@
                     </td>
                   <?php endif ?>
 
+                    <td>
+                      <a href="del_test.php?choice_id=<?php echo $row_learning['choice_id'];?>" class="btn btn-primary my-2 my-sm-0" onClick="return confirm('ยืนยันการยกเลิกคำถาม');"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                    </td>
+
                 </tr>
 
                 <?php 
@@ -100,7 +105,7 @@
             </tbody>
           </table>
         <?php }else {
-          echo "<h3> ยังไม่มีคะแนน </h3>";
+          echo "<h3> ยังไม่มีวิดีโอ </h3>";
         }
 
         mysqli_free_result($learning);?>

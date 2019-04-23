@@ -25,7 +25,7 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
              <a class="dropdown-item" href="editprofile_show.php?user_id=<?php echo $user_id; ?>">แก้ไขข้อมูล</a>
              <a class="dropdown-item" href="edit_password.php?user_id=<?php echo $user_id; ?>">เปลี่ยนรหัสผ่าน</a>
-             <a class="dropdown-item" href="send_mail.php">ส่งอีเมล์ แจ้งเตือนผู้ใช้</a>
+             <!-- <a class="dropdown-item" href="send_mail.php">ส่งอีเมล์ แจ้งเตือนผู้ใช้</a> -->
            </div>
          </li>
        </ul>

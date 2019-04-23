@@ -14,7 +14,7 @@
 
 
 
-$query_learning = "SELECT * FROM testing order by choice_id asc " ;
+$query_learning = "SELECT * FROM testing order by choice_id desc " ;
 $learning = mysqli_query($con,$query_learning) or die(mysqli_error());
 $row_learning = mysqli_fetch_assoc($learning);
 $totalRows_learning = mysqli_num_rows($learning);
@@ -44,7 +44,7 @@ $totalRows_learning = mysqli_num_rows($learning);
           <?php include 'add_choice_sub.php'; ?>
           
           <a href="showchoice_sub.php" class="btn btn-outline-success my-2 my-sm-0"  data-toggle='modal' data-target='#addchoicesubModal'>เพิ่มคำถาม</a>
-          <table class="display" id="example">
+          <table class="table table-striped table-borderless" id="example">
            <?php if ($totalRows_learning > 0) {?>
 
             <thead>

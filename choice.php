@@ -114,7 +114,7 @@ $resultN=mysqli_fetch_array($db_queryN);
         </div>
       </div>
     </div>
-    <form name="form1" method="post" action="">
+    <form name="form1" method="get" action="">
       <div class="py-3" style="">
         <div class="container">
           <div class="row">
@@ -148,7 +148,7 @@ $resultN=mysqli_fetch_array($db_queryN);
                 <ol>
 
                   <label class="container"><h5><?php echo $result["c1"];?>
-                  <input type="radio" name="c<?php echo $i;?>" value="1" required  >
+                  <input type="radio" name="c<?php echo $i;?>" value="1" required checked >
                   <span class="checkmark"></span></h5>
                 </label>
 

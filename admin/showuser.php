@@ -52,7 +52,7 @@ $totalRows_user = mysqli_num_rows($user);
 					<br>
 
 
-					<table class="display" id="example">
+					<table class="table table-striped table-borderless" id="example">
 						<?php if ($totalRows_user > 0) {?>
 
 							<thead>
