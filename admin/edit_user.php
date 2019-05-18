@@ -1,14 +1,3 @@
-<?php
-ini_set('error_reporting', 0);
-ini_set('display_errors', 0);
-?>
-<?php
-if(session_status() == PHP_SESSION_NONE){
-    //session has not started
-  session_start();
-}
-?>
-
 <html>
 
 <head>
@@ -94,7 +83,7 @@ $totalRows_user = mysqli_num_rows($user);
                   <div class="col-9">
                     <?php $d = date("Y-m-d"); ?>
 
-                    <input type="date" name="user_date" min="<?php echo $row_user['user_date']; ?>" value="<?php echo date('Y-m-d',strtotime($row_user['user_date'])) ?>" />
+                    <input type="date" name="user_date" min="<?php echo $d; ?>" value="<?php echo date('Y-m-d',strtotime($row_user['user_date'])) ?>" />
 
                   </div>
                 </div>

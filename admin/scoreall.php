@@ -22,7 +22,7 @@ $totalRows_learning = mysqli_num_rows($learning);
 ?>
 <?php include 'datatables.php'; ?>
 
-<body>
+<body style="background-color: #F6D7C3;">
 
  <div class="py-2">
   <div class="container">

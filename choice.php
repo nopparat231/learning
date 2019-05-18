@@ -2,11 +2,12 @@
 <html>
 
 <head>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
   <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.1.3.css">
-
+<link rel="shortcut icon" href="./img/5.png" />
   <style>
     /* The container */
     .container {
@@ -42,12 +43,12 @@
 
     /* On mouse-over, add a grey background color */
     .container:hover input ~ .checkmark {
-      background-color: #ccc;
+      background-color: #ccc
     }
 
-    /* เปลี่ยนสี ปุ่มกด */
+    /* When the radio button is checked, add a blue background */
     .container input:checked ~ .checkmark {
-      background-color: #F7512D;
+      background-color: #FF6633;
     }
 
     /* Create the indicator (the dot/circle - hidden when not checked) */
@@ -90,7 +91,7 @@ $resultN=mysqli_fetch_array($db_queryN);
 
 ?>
 
-<body>
+<body style="background-color: #F6D7C3;">
   <?php include 'navbar.php'; ?>
   <?php //include 'banner.php'; ?>
   <div class="container">
@@ -114,7 +115,7 @@ $resultN=mysqli_fetch_array($db_queryN);
         </div>
       </div>
     </div>
-    <form name="form1" method="get" action="">
+    <form name="form1" method="post" action="">
       <div class="py-3" style="">
         <div class="container">
           <div class="row">
@@ -148,12 +149,12 @@ $resultN=mysqli_fetch_array($db_queryN);
                 <ol>
 
                   <label class="container"><h5><?php echo $result["c1"];?>
-                  <input type="radio" name="c<?php echo $i;?>" value="1" required checked >
+                  <input type="radio" name="c<?php echo $i;?>" value="1" required >
                   <span class="checkmark"></span></h5>
                 </label>
 
                 <label class="container"><h5><?php echo $result["c2"];?>
-                <input type="radio" name="c<?php echo $i;?>" value="2" >
+                <input type="radio" name="c<?php echo $i;?>" value="2">
                 <span class="checkmark"></span></h5>
               </label>
 
@@ -259,7 +260,8 @@ $user_learning_af = 'ยังไม่ทำ';
       swal({
         title: "คะแนนก่อนเรียน <?php echo $score ?> คะแนน",
 
-        type: "success",
+        imageUrl: './img/te.gif',
+        imageSize:'400x250',
 
         confirmButtonText: "รับชมสื่อการเรียนรู้"
       },
@@ -316,9 +318,10 @@ $user_learning_af = 'ยังไม่ทำ';
         swal({
           title: "คะแนนหลังเรียน <?php echo $score ?> คะแนน",
 
-          type: "success",
+          imageUrl: './img/te.gif',
+          imageSize:'400x250',
 
-          confirmButtonText: "ดูเฉลย"
+          confirmButtonText: "ดูคำตอบของคุณ"
         },
         function(isConfirm){
           if (isConfirm) {

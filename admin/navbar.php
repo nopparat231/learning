@@ -4,9 +4,9 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbar12"> 
-      <a class="navbar-brand d-none d-md-block" href="">
-        <i class="fa d-inline fa-lg fa-circle"></i>
-        <b>AdminPage</b>
+      <a class="navbar-brand d-none d-md-block" href="#">
+        <i class="fa fa-heartbeat" aria-hidden="true"></i>
+        <b>Admin Page</b>
       </a>
 
       <?php if (isset($_SESSION["Userlevel"]) == "A") { ?>
@@ -24,7 +24,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
              <a class="dropdown-item" href="editprofile_show.php?user_id=<?php echo $user_id; ?>">แก้ไขข้อมูล</a>
-             <a class="dropdown-item" href="edit_password.php?user_id=<?php echo $user_id; ?>">เปลี่ยนรหัสผ่าน</a>
+             <!-- <a class="dropdown-item" href="edit_password.php?user_id=<?php echo $user_id; ?>">เปลี่ยนรหัสผ่าน</a> -->
              <!-- <a class="dropdown-item" href="send_mail.php">ส่งอีเมล์ แจ้งเตือนผู้ใช้</a> -->
            </div>
          </li>

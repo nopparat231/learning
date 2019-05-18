@@ -18,6 +18,8 @@ if(session_status() == PHP_SESSION_NONE){
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
   <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.1.3.css">
+  <title>สื่อแอนิเมชั่น เรื่องการดูแลสุขภาพในวัยผู้สูงอายุ</title>
+  <link rel="shortcut icon" href="/img/5.png" />
 </head>
 <?php 
 include('../conn.php'); 
@@ -28,7 +30,7 @@ $result = mysqli_query($con,$check) or die(mysqli_error());
 $num = mysqli_fetch_assoc($result);
 
 ?>
-<body>
+<body style="background-color: #F6D7C3;">
  <?php include 'navbar.php'; ?>
  <div class="py-2">
   <div class="container">
@@ -51,18 +53,7 @@ $num = mysqli_fetch_assoc($result);
                 <?php echo($num['Username'])?></div>
               </div>
             </div>
-            <div class="form-group row"> 
-              <label for="inputpasswordh" class="col-2 col-form-label">รหัสผ่าน<br></label>
-              <div class="col-10">
-                <input type="password" name="Password" id="txtNewPassword" class="form-control" id="inputpasswordh" required="กรุณากรอกรหัสผ่าน" placeholder="รหัสผ่านต้องมี ตัวใหญ่ ตัวเล็ก ตัวเลข อย่างน้อย 8 ตัวขึ้นไป" title="รหัสผ่านต้องมี ภาษาอังกฤษตัวใหญ่ ตัวเล็ก ตัวเลข 8 ตัวขึ้นไป"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" minlength="8" maxlength="25" value="<?php echo($num['Password'])?>"> </div>
-              </div>
-              <div class="form-group row">
-               <label for="inputpasswordh" class="col-2 col-form-label text-nowrap">ยืนยันรหัสผ่าน<br></label>
-               <div class="col-10">
-                <input type="password" id="txtConfirmPassword" onkeyup="checkPasswordMatch();" class="form-control" id="inputpasswordh" required="กรุณากรอกยืนยันรหัสผ่าน" placeholder="กรุณากรอกยืนยันรหัสผ่าน"  title="รหัสผ่านต้องมี ภาษาอังกฤษตัวใหญ่ ตัวเล็ก ตัวเลข 8 ตัวขึ้นไป" minlength="8" maxlength="25" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" value="<?php echo($num['Password'])?>">
-                <div class="registrationFormAlert" id="divCheckPasswordMatch"></div>
-              </div>
-            </div>
+            
             <div class="form-group row"><label class="col-2">ชื่อ</label>
               <div class="col-10">
                 <div class="input-group">
@@ -75,6 +66,18 @@ $num = mysqli_fetch_assoc($result);
                     <input type="text" name="Lastname" class="form-control" id="inlineFormInputGroup" required="กรุณากรอกนามสกุล" placeholder="กรุณากรอกนามสกุล" value="<?php echo($num['Lastname'])?>"  onkeyup="validate();" minlength="3" maxlength="25" title="ใส่ ก-ฮ หรือ a-z เท่านั้น"></div>
                   </div>
                 </div>
+              <div class="form-group row"> 
+              <label for="inputpasswordh" class="col-2 col-form-label">รหัสผ่าน<br></label>
+              <div class="col-10">
+                <input type="password" name="Password" id="txtNewPassword" class="form-control" id="inputpasswordh" required="กรุณากรอกรหัสผ่าน" placeholder="รหัสผ่านต้องมี ตัวใหญ่ ตัวเล็ก ตัวเลข อย่างน้อย 8 ตัวขึ้นไป" title="รหัสผ่านต้องมี ภาษาอังกฤษตัวใหญ่ ตัวเล็ก ตัวเลข 8 ตัวขึ้นไป"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" minlength="8" maxlength="25" value="<?php echo($num['Password'])?>"> </div>
+              </div>
+              <div class="form-group row">
+               <label for="inputpasswordh" class="col-2 col-form-label text-nowrap">ยืนยันรหัสผ่าน<br></label>
+               <div class="col-10">
+                <input type="password" id="txtConfirmPassword" onkeyup="checkPasswordMatch();" class="form-control" id="inputpasswordh" required="กรุณากรอกยืนยันรหัสผ่าน" placeholder="กรุณากรอกยืนยันรหัสผ่าน"  title="รหัสผ่านต้องมี ภาษาอังกฤษตัวใหญ่ ตัวเล็ก ตัวเลข 8 ตัวขึ้นไป" minlength="8" maxlength="25" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" value="<?php echo($num['Password'])?>">
+                <div class="registrationFormAlert" id="divCheckPasswordMatch"></div>
+              </div>
+            </div>
                 <div class="form-group row"> <label for="inputmailh" class="col-2 col-form-label">อีเมล์</label>
                   <div class="col-10">
                     <input type="email" name="email" class="form-control" id="inputmailh" required="กรุณากรอกอีเมล์" placeholder="กรุณากรอกอีเมล์"  value="<?php echo($num['email'])?>"> </div>

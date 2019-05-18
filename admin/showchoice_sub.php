@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
   <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.1.3.css">
+  <title>สื่อแอนิเมชั่น เรื่องการดูแลสุขภาพในวัยผู้สูงอายุ</title>
+  <link rel="shortcut icon" href="/img/5.png" />
 </head>
 <?php include 'navbar.php'; ?>
 <?php include 'datatables.php'; ?>
@@ -14,7 +16,7 @@
 
 
 
-$query_learning = "SELECT * FROM testing order by choice_id desc " ;
+$query_learning = "SELECT * FROM testing order by id desc" ;
 $learning = mysqli_query($con,$query_learning) or die(mysqli_error());
 $row_learning = mysqli_fetch_assoc($learning);
 $totalRows_learning = mysqli_num_rows($learning);
@@ -23,7 +25,7 @@ $totalRows_learning = mysqli_num_rows($learning);
 ?>
 
 
-<body>
+<body style="background-color: #F6D7C3;">
 
  <div class="py-2">
   <div class="container">
@@ -40,17 +42,19 @@ $totalRows_learning = mysqli_num_rows($learning);
     <div class="row">
       <div class="col-md-12">
         <div class="table-responsive text-center">
+        
           <br>
           <?php include 'add_choice_sub.php'; ?>
           
-          <a href="showchoice_sub.php" class="btn btn-outline-success my-2 my-sm-0"  data-toggle='modal' data-target='#addchoicesubModal'>เพิ่มคำถาม</a>
-          <table class="table table-striped table-borderless" id="example">
+          <a href="showchoice_sub.php" class="btn btn-danger my-2 my-sm-0"  data-toggle='modal' data-target='#addchoicesubModal'>เพิ่มคำถาม</a>
+          <table class="display" id="example">
+            
            <?php if ($totalRows_learning > 0) {?>
 
-            <thead>
+             <thead>
               <tr class="text-center">
                 <th scope="col" width="5">ลำดับ</th>
-                <th scope="col">หมวดหมู่</th>
+                <th scope="col">ชื่อวิดีโอ</th>
                 <th scope="col">คำถาม</th>
                 <th scope="col">ตัวเลือกที่1</th>
                 <th scope="col">ตัวเลือกที่2</th>
@@ -59,7 +63,7 @@ $totalRows_learning = mysqli_num_rows($learning);
                 <th scope="col">ตัวเลือกที่ถูกต้อง</th>
                 
                 <th scope="col" width="5">แก้ไข</th>
-                <th scope="col" width="5">ลบ</th>
+                <th scope="col" width="5">ยกเลิก</th>
               </tr>
             </thead>
             <tbody>

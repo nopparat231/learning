@@ -20,7 +20,6 @@ mysqli_close($con);
 
 if($result){
 	echo "<script>";
-	echo "alert('แก้ไขสำเร็จ!');";
 	echo "window.location ='show_user.php'; ";
 	echo "</script>";
 } else {
