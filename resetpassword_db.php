@@ -41,7 +41,8 @@
                           swal({
                             title: "กรุณาตรวจสอบ รหัสผ่านที่ E-mail",
 
-                            type: "success",
+                            imageUrl: './img/re.gif',
+                            imageSize:'300x200',
 
                             confirmButtonText: "ตกลง"
                           },

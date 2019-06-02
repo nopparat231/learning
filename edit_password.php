@@ -17,6 +17,7 @@ if(session_status() == PHP_SESSION_NONE){
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
   <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.1.3.css">
+  <link rel="shortcut icon" href="./img/5.png" />
 </head>
 <?php 
 include('conn.php'); 
@@ -69,7 +70,7 @@ $num = mysqli_fetch_assoc($result);
                         <div class="py-3">
                           <div class="container">
                             <div class="row">
-                              <div class="col-md-12 text-center">
+                              <div class="col-md-8 text-center">
                                 <button name="btn" class="btn btn-success text-light mx-1" >ยืนยัน</button>
 
                                 <a class="btn btn-danger text-light mx-1" href="index1.php">ยกเลิก</a>
@@ -95,7 +96,7 @@ $num = mysqli_fetch_assoc($result);
          }
        </style>
       
-     </body>
+     <body style="background-color: #F6D7C3;">
      <?php include 'footer.php'; ?>
      </html>
 

@@ -46,7 +46,8 @@ mysqli_close($con);
 			swal({
 				title: "แก้ไขข้อมูลสำเร็จ",
 
-				type: "success",
+				imageUrl: './img/1.png',
+				imageSize:'300x150',
 
 				confirmButtonText: "ยืนยัน"
 			},

@@ -108,9 +108,10 @@ if ($numemail > 0 ){ ?>
 
          setTimeout(function () { 
            swal({
-             title: "สมัครสมาชิกสำเร็จ กรุณายืนยันที่ E-mail ที่ท่านสมัคร",
+             title: "สมัครสมาชิกสำเร็จ กรุณายืนยันการสมัครที่ E-mail ของท่าน",
 
-             type: "success",
+             imageUrl: './img/re.gif',
+             imageSize:'300x200',
 
              confirmButtonText: "ยืนยัน"
            },
@@ -135,7 +136,8 @@ if ($numemail > 0 ){ ?>
             swal({
               title: "ส่งเมล์ไม่สำเร็จ",
 
-              type: "error",
+              imageUrl: './img/x.gif',
+              imageSize:'300x150',
 
               confirmButtonText: "ลองใหม่อีกครั้ง"
             },

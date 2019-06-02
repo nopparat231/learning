@@ -18,6 +18,7 @@ if(session_status() == PHP_SESSION_NONE){
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
   <link rel="stylesheet" href="theme.css" type="text/css">
 
+  <link rel="shortcut icon" href="./img/5.png" />
 </head>
 
 <body>
@@ -45,7 +46,7 @@ if(session_status() == PHP_SESSION_NONE){
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h1 class="mb-3 text-center">สื่อการเรียนรู้</h1>
+          <h1 class="mb-3 text-center">สื่อแอนิเมชัน เรื่องการดูแลสุขภาพในวัยผู้สูงอายุ</h1>
           <ul class="list-group list-group-flush">
             <?php if ($totalRows_choice > 0) {?>
               <?php do { ?>
@@ -65,7 +66,7 @@ if(session_status() == PHP_SESSION_NONE){
                    <li class="list-group">
                     <h3>
 
-                      <a href="choice.php?choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&aff=aff"><?php echo $row_choice['choice_name']; ?></a> <b style="color: #FF5733"> <font size="3"> ทำแบบทดสอบก่อนเรียนแล้ว </font></b>
+                      <a href="choice.php?choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&aff=aff"><?php echo $row_choice['choice_name']; ?></a> <b style="color: red"> <font size="3"> ทำแบบทดสอบก่อนเรียนแล้ว </font></b>
                     </h3>
                   </li>
 
@@ -73,7 +74,7 @@ if(session_status() == PHP_SESSION_NONE){
                   <li class="list-group">
                     <h3>
 
-                      <a href="watch.php?choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&aff=aff&cff"><?php echo $row_choice['choice_name']; ?></a> <b style="color: red"> <font size="3">ทำแบบทดสอบแล้ว</font></b>
+                      <a href="watch.php?choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&aff=aff&cff"><?php echo $row_choice['choice_name']; ?></a> <b style="color: red"> <font size="3">ทำแบบทดสอบแล้ว คลิกเพื่อชมสื่อ</font></b>
                     </h3>
                   </li>
 
@@ -85,7 +86,7 @@ if(session_status() == PHP_SESSION_NONE){
                <li class="list-group">
                 <h3>
 
-                  <a href="choice.php?choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&bff=bff"><?php echo $row_choice['choice_name']; ?></a> <b> <font size="3">ยังไม่ทำแบบทดสอบ</font></b>
+                  <a href="choice.php?choice_id=<?php echo $row_choice['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&bff=bff"><?php echo $row_choice['choice_name']; ?></a> <b style="color: red"> <font size="3">ยังไม่ทำแบบทดสอบก่อนชมสื่อเรื่องการดูแลสุขภาพในวัยผู้สูงอายุ คลิกเพื่อทำแบบทดสอบ</font></b>
                 </h3>
               </li>
             <?php } ?>

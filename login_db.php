@@ -5,24 +5,19 @@ include("conn.php");
 $password = $_REQUEST['Password'];
 $Username = $_REQUEST['Username'];
 
-
-//เช็ค Username กับ Password ตรงกันไหม
 $strSQL = "SELECT * FROM user WHERE Username = '".mysqli_real_escape_string($con,$Username)."' 
 and Password = '".mysqli_real_escape_string($con,$password)."'";
 $objQuery = mysqli_query($con,$strSQL);
 $objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
 
-//เช็ค Status = Y รึยัง ยืนยันการสมัครรึยัง
 $check = "SELECT * FROM user WHERE Status = 'Y' and Username = '".mysqli_real_escape_string($con,$Username)."'";
 $resultemail = mysqli_query($con,$check);
 $objResultcheck = mysqli_fetch_array($resultemail);
 
-//เช็ค ว่า User หมดถูกระงับ
 $checklav = "SELECT * FROM user WHERE Userlevel = 'E' and Username = '".mysqli_real_escape_string($con,$Username)."'";
 $resultemaillav = mysqli_query($con,$checklav);
 $objResultchecklav = mysqli_fetch_array($resultemaillav);
 
-//เช็ค ว่า User หมดอายุ วันที่ยัง
 $d = date("Y-m-d");
 $checkdate = "SELECT * FROM user WHERE user_date < '$d' and Username = '".mysqli_real_escape_string($con,$Username)."'";
 $resultemaildate = mysqli_query($con,$checkdate);

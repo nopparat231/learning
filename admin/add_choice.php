@@ -7,14 +7,14 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">เพิ่มหมวดหมู่</h5>
+            <h5 class="modal-title">เพิ่มวิดีโอ</h5>
             <button type="button" class="close" data-dismiss="modal"> <span>×</span> </button>
           </div>
           <div class="modal-body">
             <form action="add_choice_db.php" id="c_form-h" class=""  method="post">
 
               <div class="form-group row"> 
-                <label for="inputmailh" class="col-3 col-form-label">ชื่อหมวดหมู่</label>
+                <label for="inputmailh" class="col-3 col-form-label">ชื่อวิดีโอ</label>
                 <div class="col-9">
                   <input type="text" class="form-control" required="required" id="choice_name" name="choice_name" placeholder="กรุณากรอกหมวดหมู่"> 
                 </div>

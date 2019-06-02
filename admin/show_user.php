@@ -14,6 +14,8 @@ if(session_status() == PHP_SESSION_NONE){
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
 	<link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.1.3.css">
+        <title>สื่อแอนิเมชั่น เรื่องการดูแลสุขภาพในวัยผู้สูงอายุ</title>
+        <link rel="shortcut icon" href="/img/5.png" />
 
 
 </head>
@@ -32,13 +34,13 @@ $totalRows_user = mysqli_num_rows($user);
 
 
 ?>
-
+<body style="background-color: #F6D7C3;">
 <div class="col-md-12">
 	<div class="py-2">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h1 class="text-center" >จัดการผู้ใช้</h1>
+					<h1 class="text-center" >ผู้ใช้งานทั้งหมด</h1>
 				</div>
 			</div>
 		</div>
@@ -52,7 +54,7 @@ $totalRows_user = mysqli_num_rows($user);
 					<br>
 
 
-					<table class="table table-striped table-borderless" id="example">
+					<table class="display" id="example">
 						<?php if ($totalRows_user > 0) {?>
 
 							<thead>
@@ -128,6 +130,7 @@ $totalRows_user = mysqli_num_rows($user);
 		</div>
 	</div>
 </div>
+</body>
 <?php include 'footer_admin.php'; ?>
 
 

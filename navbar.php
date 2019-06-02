@@ -6,8 +6,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbar12"> 
       <a class="navbar-brand d-none d-md-block" href="#">
-        <i class="fa d-inline fa-lg fa-circle"></i>
-        <b>Home</b>
+        <i class="fa fa-heartbeat" aria-hidden="true"></i>
+        <title>สื่อแอนิเมชั่น เรื่องการดูแลสุขภาพในวัยผู้สูงอายุ</title>
+        <b>การดูแลสุขภาพในวัยผู้สูงอายุ</b>
       </a>
 
       <?php if (isset($_SESSION["Userlevel"]) == "M") { ?>

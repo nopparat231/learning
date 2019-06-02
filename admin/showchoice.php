@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
   <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.1.3.css">
-
+  <title>สื่อแอนิเมชั่น เรื่องการดูแลสุขภาพในวัยผู้สูงอายุ</title>
+  <link rel="shortcut icon" href="/img/5.png" />
 
 </head>
 <?php include 'navbar.php'; ?>
@@ -25,7 +26,7 @@
 ?>
 
 
-<body>
+<body style="background-color: #F6D7C3;">
 
  <div class="py-2">
   <div class="container">
@@ -49,8 +50,8 @@
           
 
           
-          <a href="showchoice.php" class="btn btn-outline-success my-2 my-sm-0" data-toggle='modal' data-target='#addchoiceModal'>เพิ่มวิดีโอ</a>
-          <table class="table table-striped table-borderless" id="example">
+          <a href="showchoice.php" class="btn btn-danger my-2 my-sm-0" data-toggle='modal' data-target='#addchoiceModal'>เพิ่มวิดีโอ</a>
+          <table class="display" id="example">
            <?php if ($totalRows_learning > 0) {?>
 
             <thead>
@@ -61,7 +62,6 @@
                 
                 <th scope="col" width="5">แก้ไข</th>
                 <th scope="col" width="5">ยกเลิก</th>
-                <th scope="col" width="5">ลบ</th>
               </tr>
             </thead>
             <tbody>
@@ -92,10 +92,6 @@
                     </td>
                   <?php endif ?>
 
-                    <td>
-                      <a href="del_test.php?choice_id=<?php echo $row_learning['choice_id'];?>" class="btn btn-primary my-2 my-sm-0" onClick="return confirm('ยืนยันการยกเลิกคำถาม');"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                    </td>
-
                 </tr>
 
                 <?php 
@@ -105,7 +101,7 @@
             </tbody>
           </table>
         <?php }else {
-          echo "<h3> ยังไม่มีวิดีโอ </h3>";
+          echo "<h3> ยังไม่มีคะแนน </h3>";
         }
 
         mysqli_free_result($learning);?>

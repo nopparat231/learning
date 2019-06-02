@@ -24,7 +24,7 @@ mysqli_close($con);
 if($result){
 	echo "<script>";
 	echo "alert('เพิ่ม คำถาม เรียบร้อยแล้ว');";
-	echo "window.location ='showchoice.php'; ";
+	echo "window.location ='showchoice_sub.php'; ";
 	echo "</script>";
 } else {
 	echo "<script>";

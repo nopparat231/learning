@@ -2,11 +2,11 @@
 <script type="text/javascript" language="javascript" src="../dt/jquery-1.12.0.min.js"></script>
 <script type="text/javascript" language="javascript" src="../dt/jquery.dataTables.min.js"></script>
 
-<script>    
+<script>		
 $(document).ready(function() {
   if ( $.fn.dataTable.isDataTable( '#example' ) ) {
     table = $('#example').DataTable({
-       "language": {
+    	 "language": {
              "lengthMenu": "Display _MENU_ records",
               "sEmptyTable":     "ไม่มีข้อมูลในตาราง",
               "sInfo":           "แสดง _START_ ถึง _END_ จาก _TOTAL_ แถว",

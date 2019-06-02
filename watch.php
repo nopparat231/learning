@@ -19,10 +19,7 @@ $row_watch = mysqli_fetch_assoc($watch);
 $totalRows_watch = mysqli_num_rows($watch);
 ?>
 
-
-
-
-<body>
+<body style="background-color: #F6D7C3;">
   <?php include 'navbar.php'; ?>
   <div class="py-2">
     <div class="container">
@@ -78,7 +75,7 @@ $totalRows_watch = mysqli_num_rows($watch);
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center">
-            <a class="btn btn-success" href="choice.php?choice_id=<?php echo $row_watch['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&aff=aff">ทำแบบทดสอบหลังเรียน</a></div>
+            <a class="btn btn-success" href="choice.php?choice_id=<?php echo $row_watch['choice_id'];?>&user_id=<?php echo $_SESSION['UserID'];?>&aff=aff">ทำแบบทดสอบหลังชมสื่อ</a></div>
           </div>
         </div>
       </div>
@@ -126,9 +123,9 @@ $totalRows_watch = mysqli_num_rows($watch);
   function changeBorderColor(playerStatus) {
     var color;
     if (playerStatus == -1) {
-      document.getElementById("npbutton").style.display = "none";// unstarted = ยังไม่จบ
+      document.getElementById("npbutton").style.display = "none";// unstarted = gray
     } else if (playerStatus == 0) {
-      document.getElementById("npbutton").style.display = "block"; // ended = จบ
+      document.getElementById("npbutton").style.display = "block"; // ended = yellow
     } else if (playerStatus == 1) {
       color = "#33691E"; // playing = green
     } else if (playerStatus == 2) {

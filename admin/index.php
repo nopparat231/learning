@@ -14,7 +14,7 @@ if(session_status() == PHP_SESSION_NONE){
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="./css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
   <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.1.3.css">
 </head>
 <?php include 'navbar.php'; ?>
@@ -32,7 +32,7 @@ $totalRows_learning = mysqli_num_rows($learning);
 ?>
 <?php include 'datatables.php'; ?>
 
-<body>
+<body style="background-color: #F6D7C3;">
 
  <div class="py-2">
   <div class="container">

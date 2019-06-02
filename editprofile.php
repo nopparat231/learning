@@ -27,7 +27,7 @@ $result = mysqli_query($con,$check) or die(mysqli_error());
 $num = mysqli_fetch_assoc($result);
 
 ?>
-<body>
+<body style="background-color: #F6D7C3;">
  <?php include 'navbar.php'; ?>
  <div class="py-2">
   <div class="container">

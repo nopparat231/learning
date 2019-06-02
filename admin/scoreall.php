@@ -22,7 +22,7 @@ $totalRows_learning = mysqli_num_rows($learning);
 ?>
 <?php include 'datatables.php'; ?>
 
-<body>
+<body style="background-color: #F6D7C3;">
 
  <div class="py-2">
   <div class="container">
@@ -38,7 +38,7 @@ $totalRows_learning = mysqli_num_rows($learning);
     <div class="row">
       <div class="col-md-12">
         <div class="table-responsive text-center">
-          <table class="table table-striped table-borderless" id="example">
+          <table class="display" id="example">
            <?php if ($totalRows_learning > 0) {?>
 
             <thead>

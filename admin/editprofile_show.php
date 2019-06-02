@@ -14,6 +14,9 @@ if(session_status() == PHP_SESSION_NONE){
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
   <link rel="stylesheet" href="https://static.pingendo.com/bootstrap/bootstrap-4.1.3.css">
+  <title>สื่อแอนิเมชั่น เรื่องการดูแลสุขภาพในวัยผู้สูงอายุ</title>
+  <link rel="shortcut icon" href="/img/5.png" />
+
 </head>
 <?php 
 date_default_timezone_set('Asia/Bangkok');
@@ -25,7 +28,7 @@ $result = mysqli_query($con,$check) or die(mysqli_error());
 $num = mysqli_fetch_assoc($result);
 
 ?>
-<body>
+<body style="background-color: #F6D7C3;">
  <?php include 'navbar.php'; ?>
  <div class="py-2">
   <div class="container">
@@ -89,7 +92,7 @@ $num = mysqli_fetch_assoc($result);
                       <div class="py-3">
                         <div class="container">
                           <div class="row">
-                            <div class="col-md-12 text-center">
+                            <div class="col-md-8 text-center">
 
                               <a class="btn btn-warning text-light mx-1" href="editprofile.php?eu&user_id=<?php echo $user_id; ?>">แก้ไข</a>
                             </div>
